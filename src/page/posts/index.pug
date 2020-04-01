@@ -1,0 +1,13 @@
+extends ../template/layout.pug
+
+append var
+  - cfg.title = 'Posts'
+
+block style
+  link(rel='stylesheet', href='/style/default.css')
+
+block script
+  script(src='/script/default.js')
+
+block content
+  include /markdown/posts/index.html

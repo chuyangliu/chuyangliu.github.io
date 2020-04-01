@@ -1,0 +1,21 @@
+extends template/layout.pug
+
+append var
+
+block style
+  link(rel='stylesheet', href='/style/index.css')
+
+block script
+  script(src='/script/index.js')
+
+block content
+  include /markdown/index.html
+
+  form.form-horizontal
+    .form-group
+      label.sr-only(for='command')
+      .col-lg-5
+        input#command.form-control(type='text', placeholder='Run any command')
+    input(type='submit', hidden)
+
+  samp#output

@@ -1,0 +1,10 @@
+@import 'default.css';
+
+div.form-group {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+samp#output {
+  font-size: 14px;
+}

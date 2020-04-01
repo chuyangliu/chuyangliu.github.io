@@ -1,0 +1,54 @@
+block var
+  -
+    const cfg = {
+      title: '',
+      highlightjs: false,
+      mathjax: false,
+    }
+
+mixin head()
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+
+  if cfg.title === ''
+    title Chuyang Liu
+  else
+    title #{cfg.title} - Chuyang Liu
+
+  link(rel='stylesheet', href='https://fastly.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css', crossorigin='anonymous')
+
+  if cfg.highlighjs
+    link(rel='stylesheet', href='https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/base16/equilibrium-light.min.css', crossorigin='anonymous')
+
+  block style
+
+mixin body()
+  .container
+    .row
+      .col-sm-1
+      .col-sm-10
+        if cfg.title !== ''
+          h1 #{cfg.title}
+          hr
+        block content
+        include footer.pug
+      .col-sm-1
+
+  script(src='https://fastly.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js', crossorigin='anonymous')
+
+  script(src='https://fastly.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js', crossorigin='anonymous')
+
+  if cfg.highlighjs
+    script(src='https://fastly.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js', crossorigin='anonymous')
+
+  if cfg.mathjax
+    script(src='https://fastly.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js', crossorigin='anonymous', async)
+
+  block script
+
+doctype html
+html(lang='en')
+  head
+    +head()
+  body
+    +body()

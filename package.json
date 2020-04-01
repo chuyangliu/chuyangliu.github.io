@@ -1,0 +1,27 @@
+{
+  "scripts": {
+    "lint": "eslint gulpfile.js src/script/**/*.js",
+    "build": "gulp build",
+    "server": "gulp server --dev"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0",
+    "del": "^6.1.0",
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-connect": "^5.7.0",
+    "gulp-cssimport": "^7.0.0",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^3.0.0",
+    "gulp-markdown": "^6.0.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify-es": "^3.0.0",
+    "minimist": "^1.2.7",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
