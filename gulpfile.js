@@ -1,14 +1,17 @@
-const del = require('del');
-
 const gulp = require('gulp');
+const gulpIf = require('gulp-if');
 const gulpConcat = require('gulp-concat');
 const gulpRename = require('gulp-rename');
+const gulpSourceMap = require('gulp-sourcemaps');
 const gulpMinifyCSS = require('gulp-clean-css');
 const gulpMinifyJS = require('gulp-uglify-es').default;
 const gulpMinifyHTML = require('gulp-htmlmin');
 const gulpMarkdown = require('gulp-markdown');
 const gulpPug = require('gulp-pug');
 const gulpConnect = require('gulp-connect');
+
+const del = require('del');
+const cfg = require('minimist')(process.argv.slice(2));
 
 const dirOut = 'out';
 const dirDist = `${dirOut}/dist`;
@@ -56,9 +59,11 @@ function media() {
 function style() {
   return gulp.src(path.style.src)
     .pipe(gulpConcat('default.css'))
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
     .pipe(gulpMinifyCSS({
       compatibility: 'ie8',
     }))
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
     .pipe(gulp.dest(path.style.dst))
     .pipe(gulpConnect.reload());
 }
@@ -66,7 +71,9 @@ function style() {
 function script() {
   return gulp.src(path.script.src)
     .pipe(gulpConcat('default.js'))
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
     .pipe(gulpMinifyJS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
     .pipe(gulp.dest(path.script.dst))
     .pipe(gulpConnect.reload());
 }
