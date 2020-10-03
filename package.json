@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "scripts": {
     "lint": "eslint gulpfile.js src/script/**/*.js",
-    "clean": "gulp clean",
     "build": "gulp build",
     "server": "gulp server --dev"
   },

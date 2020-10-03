@@ -120,6 +120,5 @@ function server(done) {
   done();
 }
 
-exports.clean = clean;
 exports.build = gulp.series(clean, gulp.parallel(meta, media, style, script, page));
 exports.server = gulp.series(exports.build, server);
