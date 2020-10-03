@@ -1,0 +1,8 @@
+extends ../template/layout.pug
+
+append var
+  - cfg.title = 'Sum Tree'
+  - cfg.mathjax = true
+
+block content
+  include /markdown/post/sum-tree.html

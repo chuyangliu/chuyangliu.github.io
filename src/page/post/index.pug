@@ -1,0 +1,7 @@
+extends ../template/layout.pug
+
+append var
+  - cfg.title = 'Posts'
+
+block content
+  include /markdown/post/index.html

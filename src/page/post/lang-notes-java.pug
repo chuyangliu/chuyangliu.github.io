@@ -1,0 +1,8 @@
+extends ../template/layout.pug
+
+append var
+  - cfg.title = 'Language Notes (Java)'
+  - cfg.highlighjs = true
+
+block content
+  include /markdown/post/lang-notes-java.html
