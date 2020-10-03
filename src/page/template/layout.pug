@@ -43,8 +43,8 @@ mixin head()
 mixin body()
   .container
     .row
-      .col-xs-1
-      .col-xs-10
+      .col-sm-1
+      .col-sm-10
         if cfg.title !== ""
           h1 #{cfg.title}
           hr
@@ -53,7 +53,7 @@ mixin body()
           include footer/min.pug
         else
           include footer/full.pug
-      .col-xs-1
+      .col-sm-1
   include monitor.pug
 
 doctype html
