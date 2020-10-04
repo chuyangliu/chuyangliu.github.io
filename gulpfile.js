@@ -4,7 +4,7 @@ const gulpConcat = require('gulp-concat');
 const gulpRename = require('gulp-rename');
 const gulpSourceMap = require('gulp-sourcemaps');
 const gulpMinifyCSS = require('gulp-clean-css');
-const gulpMinifyJS = require('gulp-uglify-es').default;
+const gulpMinifyJS = require('gulp-terser');
 const gulpMinifyHTML = require('gulp-htmlmin');
 const gulpMarkdown = require('gulp-markdown');
 const gulpPug = require('gulp-pug');
@@ -60,9 +60,7 @@ function style() {
   return gulp.src(path.style.src)
     .pipe(gulpConcat('default.css'))
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpMinifyCSS({
-      compatibility: 'ie8',
-    }))
+    .pipe(gulpMinifyCSS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
     .pipe(gulp.dest(path.style.dst))
     .pipe(gulpConnect.reload());
