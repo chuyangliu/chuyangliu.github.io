@@ -25,14 +25,37 @@ const path = {
     src: 'src/media/**/*',
     dst: `${dirDist}/media/`,
   },
-  style: {
-    src: 'src/style/**/*.css',
+  font: {
+    src: 'src/font/**/*',
+    dst: `${dirDist}/font/`,
+  },
+
+  styleDefault: {
+    name: "default.css",
+    base: 'src/style/default',
+    src: 'src/style/default/**/*.css',
     dst: `${dirDist}/style/`,
   },
-  script: {
-    src: 'src/script/**/*.js',
+  styleSnakeFight: {
+    name: "snakefight.css",
+    base: 'src/style/snakefight',
+    src: 'src/style/snakefight/**/*.css',
+    dst: `${dirDist}/style/`,
+  },
+
+  scriptDefault: {
+    name: "default.js",
+    base: 'src/script/default',
+    src: 'src/script/default/**/*.js',
     dst: `${dirDist}/script/`,
   },
+  scriptSnakeFight: {
+    name: "snakefight.js",
+    base: 'src/script/snakefight',
+    src: 'src/script/snakefight/**/*.js',
+    dst: `${dirDist}/script/`,
+  },
+
   markdown: {
     src: 'src/page/**/*.md',
     dst: `${dirOut}/markdown/`,
@@ -56,25 +79,63 @@ function media() {
     .pipe(gulpConnect.reload());
 }
 
-function style() {
-  return gulp.src(path.style.src)
-    .pipe(gulpConcat('default.css'))
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpMinifyCSS())
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.style.dst))
+function font() {
+  return gulp.src(path.font.src)
+    .pipe(gulp.dest(path.font.dst))
     .pipe(gulpConnect.reload());
 }
 
-function script() {
-  return gulp.src(path.script.src)
-    .pipe(gulpConcat('default.js'))
+function styleDefault() {
+  return gulp.src(path.styleDefault.src, {
+      base: path.styleDefault.base,
+    })
+    .pipe(gulpConcat(path.styleDefault.name))
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpMinifyCSS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
+    .pipe(gulp.dest(path.styleDefault.dst))
+    .pipe(gulpConnect.reload());
+}
+
+function styleSnakeFight() {
+  return gulp.src(path.styleSnakeFight.src, {
+      base: path.styleSnakeFight.base,
+    })
+    .pipe(gulpConcat(path.styleSnakeFight.name))
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpMinifyCSS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
+    .pipe(gulp.dest(path.styleSnakeFight.dst))
+    .pipe(gulpConnect.reload());
+}
+
+const style = gulp.parallel(styleDefault, styleSnakeFight);
+
+function scriptDefault() {
+  return gulp.src(path.scriptDefault.src, {
+      base: path.scriptDefault.name,
+    })
+    .pipe(gulpConcat(path.scriptDefault.name))
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
     .pipe(gulpMinifyJS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.script.dst))
+    .pipe(gulp.dest(path.scriptDefault.dst))
     .pipe(gulpConnect.reload());
 }
+
+function scriptSnakeFight() {
+  return gulp.src(path.scriptSnakeFight.src, {
+      base: path.scriptSnakeFight.name,
+    })
+    .pipe(gulpConcat(path.scriptSnakeFight.name))
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpMinifyJS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
+    .pipe(gulp.dest(path.scriptSnakeFight.dst))
+    .pipe(gulpConnect.reload());
+}
+
+const script = gulp.parallel(scriptDefault, scriptSnakeFight);
 
 function markdown() {
   return gulp.src(path.markdown.src)
@@ -110,13 +171,21 @@ function server(done) {
     port: 8000,
     livereload: true,
   });
+
   gulp.watch(path.meta.src, meta);
   gulp.watch(path.media.src, media);
-  gulp.watch(path.style.src, style);
-  gulp.watch(path.script.src, script);
+  gulp.watch(path.font.src, font);
+
+  gulp.watch(path.styleDefault.src, styleDefault);
+  gulp.watch(path.styleSnakeFight.src, styleSnakeFight);
+
+  gulp.watch(path.scriptDefault.src, scriptDefault);
+  gulp.watch(path.scriptSnakeFight.src, scriptSnakeFight);
+
   gulp.watch([path.markdown.src, path.pug.srcToWatch], page);
+
   done();
 }
 
-exports.build = gulp.series(clean, gulp.parallel(meta, media, style, script, page));
+exports.build = gulp.series(clean, gulp.parallel(meta, media, font, style, script, page));
 exports.server = gulp.series(exports.build, server);

@@ -1,0 +1,120 @@
+* {
+  outline: none;
+}
+
+body {
+  background-color: white;
+}
+
+.start-bg {
+  background-color: #81C784;
+}
+
+.ready-bg {
+  background-color: #F44336;
+}
+
+.blur {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+}
+
+nav#nav-main button,
+div#div-ctrl button {
+  cursor: pointer;
+}
+
+nav#nav-main button[disabled],
+div#div-ctrl button[disabled] {
+  cursor: wait;
+}
+
+button#btn-quit {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  border: none;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  background: url('/media/snakefight/quit.svg') no-repeat;
+}
+
+button#btn-help {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  border: none;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  background: url('/media/snakefight/help.svg') no-repeat;
+}
+
+div#div-playground {
+  display: none;
+}
+
+div#div-playground canvas {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+p#p-time {
+  user-select: none;
+  font-family: 'Neucha', Arial, sans-serif;
+  display: none;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
+  text-align: center;
+  font-size: 30px;
+}
+
+div#div-ctrl {
+  display: flex;
+  display: -webkit-flex;
+  height: 100vh;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+button#btn-main {
+  user-select: none;
+  font-family: 'Caveat Brush', Arial, sans-serif;
+  font-size: 40px;
+  color: white;
+  width: 130px;
+  height: 130px;
+  margin: 0 0 20px;
+  border: none;
+  border-radius: 50%;
+  z-index: inherit;
+  -webkit-transition: background-color 500ms ease;
+  -moz-transition: background-color 500ms ease;
+  -o-transition: background-color 500ms ease;
+  transition: background-color 500ms ease;
+}
+
+p#p-info {
+  user-select: none;
+  font-family: 'Neucha', Arial, sans-serif;
+  font-size: 25px;
+  color: #333;
+  margin: 0;
+  z-index: inherit;
+  word-break: break-all;
+  text-align: center;
+}
