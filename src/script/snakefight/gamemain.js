@@ -1,5 +1,8 @@
-module.exports = (() => {
-  'use strict'
+import timer from './util/timer.js'
+import playground from './playground/playground.js'
+import gameCtrl from './gamectrl.js'
+
+export default (() => {
 
   const INFO_ERR_CONNECT = 'Failed to connect server. Please try again.'
   const INFO_ERR_SERVER = 'Server error. Please try again.'
@@ -37,11 +40,6 @@ module.exports = (() => {
   const DURATION_PREPARE_SWITCH_INFO = 2000
 
   const FACTOR_STEP_TO_TIME = 0.2
-
-  const timer = require('./util/timer.js')
-  const playground = require('./playground/playground.js')
-  const robot = require('./robot/robot.js')
-  const gameCtrl = require('./gamectrl.js')(robot)
 
   const MAP_KEY_ACTION = {
     37: gameCtrl.ACTION.LEFT,

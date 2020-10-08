@@ -89,8 +89,8 @@ function styleDefault() {
   return gulp.src(path.styleDefault.src, {
       base: path.styleDefault.base,
     })
-    .pipe(gulpConcat(path.styleDefault.name))
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.styleDefault.name))
     .pipe(gulpMinifyCSS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
     .pipe(gulp.dest(path.styleDefault.dst))
@@ -101,8 +101,8 @@ function styleSnakeFight() {
   return gulp.src(path.styleSnakeFight.src, {
       base: path.styleSnakeFight.base,
     })
-    .pipe(gulpConcat(path.styleSnakeFight.name))
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.styleSnakeFight.name))
     .pipe(gulpMinifyCSS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
     .pipe(gulp.dest(path.styleSnakeFight.dst))
@@ -115,8 +115,8 @@ function scriptDefault() {
   return gulp.src(path.scriptDefault.src, {
       base: path.scriptDefault.name,
     })
-    .pipe(gulpConcat(path.scriptDefault.name))
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.scriptDefault.name))
     .pipe(gulpMinifyJS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
     .pipe(gulp.dest(path.scriptDefault.dst))
@@ -127,8 +127,8 @@ function scriptSnakeFight() {
   return gulp.src(path.scriptSnakeFight.src, {
       base: path.scriptSnakeFight.name,
     })
-    .pipe(gulpConcat(path.scriptSnakeFight.name))
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.scriptSnakeFight.name))
     .pipe(gulpMinifyJS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
     .pipe(gulp.dest(path.scriptSnakeFight.dst))

@@ -1,19 +1,15 @@
-module.exports = (() => {
-  'use strict'
+import plotter from './plotter.js'
+import Direc from './direc.js'
+import Pos from './pos.js'
+import Point from './point.js'
+import Snake from './snake.js'
 
-  const NUM_ROWS = 20
-  const NUM_COLS = 35
+export default (() => {
 
   const INIT_BODIES_PAD_HOR = 4
   const INIT_BODIES_PAD_VER = 3
 
   const DURATION_TIME_BLINK = 200
-
-  const plotter = require('./plotter.js')(NUM_ROWS, NUM_COLS)
-  const Direc = require('./direc.js')
-  const Pos = require('./pos.js')
-  const Point = require('./point.js')
-  const Snake = require('./snake.js')
 
   const MAP_DIREC_PLOT_TYPES = {}
   MAP_DIREC_PLOT_TYPES[Direc.LEFT] = plotter.HEAD.LEFT

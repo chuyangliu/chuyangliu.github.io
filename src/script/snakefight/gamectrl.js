@@ -1,7 +1,8 @@
 /* global uuidv4 */
+import robot from './robot/robot.js'
+import messenger from './util/messenger.js'
 
-module.exports = (rbt) => {
-  'use strict'
+export default (() => {
 
   const DEST_ENDPOINT = '/ws/ep'
   const DEST_SUBSCRIBE = '/ws/sb'
@@ -49,9 +50,6 @@ module.exports = (rbt) => {
   const THRESHOLD_ABOUT_TO_SWITCH = 15
 
   const MSG_SEPARATOR = '_'
-
-  const robot = rbt
-  const messenger = require('./util/messenger.js')
 
   let playerId = null
   let playerState = STATE.OFFLINE
@@ -369,4 +367,4 @@ module.exports = (rbt) => {
     quitBattle: quitBattle,
     quit: quit
   }
-}
+})()

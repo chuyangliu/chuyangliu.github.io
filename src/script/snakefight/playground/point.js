@@ -1,5 +1,4 @@
-module.exports = (() => {
-  'use strict'
+export default (() => {
 
   function Point(type) {
     this._type = type || Point.TYPE.EMPTY

@@ -1,8 +1,6 @@
 /* global Stomp, SockJS */
 
-module.exports = (() => {
-  'use strict'
-
+export default (() => {
   let stompClient = null
 
   const connect = (connDest, sucCb, errCb, subscribeDest, subscribeCb) => {

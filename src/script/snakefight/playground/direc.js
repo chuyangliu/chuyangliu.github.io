@@ -1,5 +1,4 @@
-module.exports = (() => {
-  'use strict'
+export default (() => {
 
   const NONE = 0
   const LEFT = 1

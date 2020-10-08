@@ -1,10 +1,9 @@
-module.exports = (() => {
-  'use strict'
+import Pos from '../playground/pos.js'
+
+export default (() => {
 
   const FREQ_ACTION = 120 // ms
   const CLOSE_DIST = 10
-
-  const Pos = require('../playground/pos.js')
 
   let gameCtrl = null
   let playground = null

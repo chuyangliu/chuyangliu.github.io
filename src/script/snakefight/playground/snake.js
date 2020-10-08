@@ -1,5 +1,4 @@
-module.exports = (() => {
-  'use strict'
+export default (() => {
 
   function Snake(initBodies, initDirec) {
     this._initBodies = initBodies

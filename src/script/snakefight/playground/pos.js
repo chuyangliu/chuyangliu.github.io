@@ -1,7 +1,6 @@
-module.exports = (() => {
-  'use strict'
+import DIREC from './direc.js'
 
-  const DIREC = require('./direc.js')
+export default (() => {
 
   function Pos(row, col) {
     this._row = Math.floor(row || 0)

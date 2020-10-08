@@ -1,7 +1,9 @@
-module.exports = (numRows, numCols) => {
-  'use strict'
+export default (() => {
 
   // Sizes in pixels - BEGIN
+
+  const NUM_ROWS = 20
+  const NUM_COLS = 35
 
   const CANVAS_WIDTH = Math.floor(0.8 * window.innerWidth)
   const CANVAS_HEIGHT = Math.floor(0.8 * window.innerHeight)
@@ -12,14 +14,14 @@ module.exports = (numRows, numCols) => {
   const EXPECT_CONTENT_WIDTH = CANVAS_WIDTH - 2 * SHADOW_SIZE
   const EXPECT_CONTENT_HEIGHT = CANVAS_HEIGHT - 2 * SHADOW_SIZE
 
-  const EXPECT_BLOCK_WIDTH = Math.floor(EXPECT_CONTENT_WIDTH / numCols)
-  const EXPECT_BLOCK_HEIGHT = Math.floor(EXPECT_CONTENT_HEIGHT / numRows)
+  const EXPECT_BLOCK_WIDTH = Math.floor(EXPECT_CONTENT_WIDTH / NUM_COLS)
+  const EXPECT_BLOCK_HEIGHT = Math.floor(EXPECT_CONTENT_HEIGHT / NUM_ROWS)
 
   const BLOCK_WIDTH = Math.min(EXPECT_BLOCK_WIDTH, EXPECT_BLOCK_HEIGHT)
   const BLOCK_HEIGHT = BLOCK_WIDTH
 
-  const EXPECT_PAD_HOR = Math.floor(0.5 * (EXPECT_CONTENT_WIDTH - numCols * BLOCK_WIDTH))
-  const EXPECT_PAD_VER = Math.floor(0.5 * (EXPECT_CONTENT_HEIGHT - numRows * BLOCK_HEIGHT))
+  const EXPECT_PAD_HOR = Math.floor(0.5 * (EXPECT_CONTENT_WIDTH - NUM_COLS * BLOCK_WIDTH))
+  const EXPECT_PAD_VER = Math.floor(0.5 * (EXPECT_CONTENT_HEIGHT - NUM_ROWS * BLOCK_HEIGHT))
 
   const PAD_HOR = EXPECT_PAD_HOR + SHADOW_SIZE
   const PAD_VER = EXPECT_PAD_VER + SHADOW_SIZE
@@ -388,4 +390,4 @@ module.exports = (numRows, numCols) => {
     drawOpponentHead: drawOpponentHead,
     drawOpponentBody: drawOpponentBody
   }
-}
+})()
