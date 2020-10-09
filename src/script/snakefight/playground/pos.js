@@ -1,4 +1,32 @@
-import DIREC from './direc.js'
+import Direction from './direc.js'
+
+class Pos {
+
+  constructor(row, col) {
+    this._row = row;
+    this._col = col;
+  }
+
+  get row() {
+    return this._row;
+  }
+
+  set row(val) {
+    this._row = val;
+  }
+
+  get col() {
+    return this._col;
+  }
+
+  set col(val) {
+    this._col = val;
+  }
+
+  // TODO
+}
+
+export default Pos;
 
 export default (() => {
 

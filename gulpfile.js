@@ -31,13 +31,13 @@ const path = {
   },
 
   styleDefault: {
-    name: "default.css",
+    name: 'default.css',
     base: 'src/style/default',
     src: 'src/style/default/**/*.css',
     dst: `${dirDist}/style/`,
   },
   styleSnakeFight: {
-    name: "snakefight.css",
+    name: 'snakefight.css',
     base: 'src/style/snakefight',
     src: 'src/style/snakefight/**/*.css',
     dst: `${dirDist}/style/`,
