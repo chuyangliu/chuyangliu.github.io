@@ -25,37 +25,18 @@ const path = {
     src: 'src/media/**/*',
     dst: `${dirDist}/media/`,
   },
-  font: {
-    src: 'src/font/**/*',
-    dst: `${dirDist}/font/`,
-  },
-
   styleDefault: {
     name: 'default.css',
     base: 'src/style/default',
     src: 'src/style/default/**/*.css',
     dst: `${dirDist}/style/`,
   },
-  styleSnakeFight: {
-    name: 'snakefight.css',
-    base: 'src/style/snakefight',
-    src: 'src/style/snakefight/**/*.css',
-    dst: `${dirDist}/style/`,
-  },
-
   scriptDefault: {
     name: 'default.js',
     base: 'src/script/default',
     src: 'src/script/default/**/*.js',
     dst: `${dirDist}/script/`,
   },
-  scriptSnakeFight: {
-    name: 'snakefight.js',
-    base: 'src/script/snakefight',
-    src: 'src/script/snakefight/**/*.js',
-    dst: `${dirDist}/script/`,
-  },
-
   markdown: {
     src: 'src/page/**/*.md',
     dst: `${dirOut}/markdown/`,
@@ -79,12 +60,6 @@ function media() {
     .pipe(gulpConnect.reload());
 }
 
-function font() {
-  return gulp.src(path.font.src)
-    .pipe(gulp.dest(path.font.dst))
-    .pipe(gulpConnect.reload());
-}
-
 function styleDefault() {
   return gulp
     .src(path.styleDefault.src, {
@@ -98,20 +73,7 @@ function styleDefault() {
     .pipe(gulpConnect.reload());
 }
 
-function styleSnakeFight() {
-  return gulp
-    .src(path.styleSnakeFight.src, {
-      base: path.styleSnakeFight.base,
-    })
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.styleSnakeFight.name))
-    .pipe(gulpMinifyCSS())
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.styleSnakeFight.dst))
-    .pipe(gulpConnect.reload());
-}
-
-const style = gulp.parallel(styleDefault, styleSnakeFight);
+const style = styleDefault;
 
 function scriptDefault() {
   return gulp
@@ -126,20 +88,7 @@ function scriptDefault() {
     .pipe(gulpConnect.reload());
 }
 
-function scriptSnakeFight() {
-  return gulp
-    .src(path.scriptSnakeFight.src, {
-      base: path.scriptSnakeFight.name,
-    })
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.scriptSnakeFight.name))
-    .pipe(gulpMinifyJS())
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.scriptSnakeFight.dst))
-    .pipe(gulpConnect.reload());
-}
-
-const script = gulp.parallel(scriptDefault, scriptSnakeFight);
+const script = scriptDefault;
 
 function markdown() {
   return gulp.src(path.markdown.src)
@@ -178,18 +127,12 @@ function server(done) {
 
   gulp.watch(path.meta.src, meta);
   gulp.watch(path.media.src, media);
-  gulp.watch(path.font.src, font);
-
   gulp.watch(path.styleDefault.src, styleDefault);
-  gulp.watch(path.styleSnakeFight.src, styleSnakeFight);
-
   gulp.watch(path.scriptDefault.src, scriptDefault);
-  gulp.watch(path.scriptSnakeFight.src, scriptSnakeFight);
-
   gulp.watch([path.markdown.src, path.pug.srcToWatch], page);
 
   done();
 }
 
-exports.build = gulp.series(clean, gulp.parallel(meta, media, font, style, script, page));
+exports.build = gulp.series(clean, gulp.parallel(meta, media, style, script, page));
 exports.server = gulp.series(exports.build, server);
