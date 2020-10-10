@@ -26,25 +26,23 @@ const path = {
     dst: `${dirDist}/media/`,
   },
   styleDefault: {
-    name: 'default.css',
-    base: 'src/style/default',
     src: 'src/style/default/**/*.css',
     dst: `${dirDist}/style/`,
+    target: 'default.css',
   },
   scriptDefault: {
-    name: 'default.js',
-    base: 'src/script/default',
     src: 'src/script/default/**/*.js',
     dst: `${dirDist}/script/`,
+    target: 'default.js',
   },
   markdown: {
     src: 'src/page/**/*.md',
     dst: `${dirOut}/markdown/`,
   },
   pug: {
-    srcToWatch: 'src/page/**/*.pug',
     src: ['src/page/**/*.pug', '!src/page/template/**/*.pug'],
     dst: `${dirDist}/`,
+    srcWatch: 'src/page/**/*.pug',
   },
 };
 
@@ -61,12 +59,9 @@ function media() {
 }
 
 function styleDefault() {
-  return gulp
-    .src(path.styleDefault.src, {
-      base: path.styleDefault.base,
-    })
+  return gulp.src(path.styleDefault.src)
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.styleDefault.name))
+    .pipe(gulpConcat(path.styleDefault.target))
     .pipe(gulpMinifyCSS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
     .pipe(gulp.dest(path.styleDefault.dst))
@@ -76,12 +71,9 @@ function styleDefault() {
 const style = styleDefault;
 
 function scriptDefault() {
-  return gulp
-    .src(path.scriptDefault.src, {
-      base: path.scriptDefault.name,
-    })
+  return gulp.src(path.scriptDefault.src)
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.scriptDefault.name))
+    .pipe(gulpConcat(path.scriptDefault.target))
     .pipe(gulpMinifyJS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
     .pipe(gulp.dest(path.scriptDefault.dst))
@@ -129,7 +121,7 @@ function server(done) {
   gulp.watch(path.media.src, media);
   gulp.watch(path.styleDefault.src, styleDefault);
   gulp.watch(path.scriptDefault.src, scriptDefault);
-  gulp.watch([path.markdown.src, path.pug.srcToWatch], page);
+  gulp.watch([path.markdown.src, path.pug.srcWatch], page);
 
   done();
 }
