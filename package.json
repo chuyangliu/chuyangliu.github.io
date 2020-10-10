@@ -2,15 +2,15 @@
   "name": "www",
   "version": "0.1.0",
   "scripts": {
-    "lint": "eslint gulpfile.js src/script/**/*.js",
+    "lint": "eslint gulpfile.js src/script/default/**/*.js src/script/snakefight/playground/direction.js src/script/snakefight/playground/pos.js",
     "build": "gulp build",
     "server": "gulp server --dev"
   },
   "devDependencies": {
     "del": "^6.0.0",
-    "eslint": "^7.9.0",
+    "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-import": "^2.22.1",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",

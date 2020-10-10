@@ -44,13 +44,13 @@ const path = {
   },
 
   scriptDefault: {
-    name: "default.js",
+    name: 'default.js',
     base: 'src/script/default',
     src: 'src/script/default/**/*.js',
     dst: `${dirDist}/script/`,
   },
   scriptSnakeFight: {
-    name: "snakefight.js",
+    name: 'snakefight.js',
     base: 'src/script/snakefight',
     src: 'src/script/snakefight/**/*.js',
     dst: `${dirDist}/script/`,
@@ -86,7 +86,8 @@ function font() {
 }
 
 function styleDefault() {
-  return gulp.src(path.styleDefault.src, {
+  return gulp
+    .src(path.styleDefault.src, {
       base: path.styleDefault.base,
     })
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
@@ -98,7 +99,8 @@ function styleDefault() {
 }
 
 function styleSnakeFight() {
-  return gulp.src(path.styleSnakeFight.src, {
+  return gulp
+    .src(path.styleSnakeFight.src, {
       base: path.styleSnakeFight.base,
     })
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
@@ -112,7 +114,8 @@ function styleSnakeFight() {
 const style = gulp.parallel(styleDefault, styleSnakeFight);
 
 function scriptDefault() {
-  return gulp.src(path.scriptDefault.src, {
+  return gulp
+    .src(path.scriptDefault.src, {
       base: path.scriptDefault.name,
     })
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
@@ -124,7 +127,8 @@ function scriptDefault() {
 }
 
 function scriptSnakeFight() {
-  return gulp.src(path.scriptSnakeFight.src, {
+  return gulp
+    .src(path.scriptSnakeFight.src, {
       base: path.scriptSnakeFight.name,
     })
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))

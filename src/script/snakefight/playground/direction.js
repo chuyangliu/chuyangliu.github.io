@@ -1,5 +1,4 @@
 class Direction {
-
   static get NONE() {
     return 0;
   }
