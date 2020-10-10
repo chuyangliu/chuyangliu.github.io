@@ -2,7 +2,7 @@
   "name": "www",
   "version": "0.1.0",
   "scripts": {
-    "lint": "eslint gulpfile.js src/script/default/**/*.js src/script/snakefight/playground/direction.js src/script/snakefight/playground/pos.js",
+    "lint": "eslint gulpfile.js src/script/default/**/*.js src/script/snakefight/playground/direction.js src/script/snakefight/playground/pos.js src/script/snakefight/playground/point.js",
     "build": "gulp build",
     "server": "gulp server --dev"
   },

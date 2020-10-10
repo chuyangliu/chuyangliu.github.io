@@ -1,24 +1,4 @@
 class Direction {
-  static get NONE() {
-    return 0;
-  }
-
-  static get LEFT() {
-    return 1;
-  }
-
-  static get RIGHT() {
-    return 2;
-  }
-
-  static get UP() {
-    return 3;
-  }
-
-  static get DOWN() {
-    return 4;
-  }
-
   static isOpposite(d1, d2) {
     switch (d1) {
       case Direction.LEFT:
@@ -34,5 +14,11 @@ class Direction {
     }
   }
 }
+
+Direction.NONE = 0;
+Direction.LEFT = 1;
+Direction.RIGHT = 2;
+Direction.UP = 3;
+Direction.DOWN = 4;
 
 export default Direction;

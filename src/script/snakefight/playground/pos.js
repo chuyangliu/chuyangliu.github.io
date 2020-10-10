@@ -6,22 +6,6 @@ class Pos {
     this.col = col;
   }
 
-  get row() {
-    return this.row;
-  }
-
-  set row(val) {
-    this.row = val;
-  }
-
-  get col() {
-    return this.col;
-  }
-
-  set col(val) {
-    this.col = val;
-  }
-
   clone() {
     return new Pos(this.row, this.col);
   }

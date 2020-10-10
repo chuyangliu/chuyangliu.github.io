@@ -43,10 +43,10 @@ export default (() => {
 
   const COLOR = {
     FOOD: '#81C784',
-    SELF_HEAD: '#F44336',
-    SELF_BODY: '#F44336',
-    OPPONENT_HEAD: '#3F51B5',
-    OPPONENT_BODY: '#3F51B5',
+    HEAD_SELF: '#F44336',
+    BODY_SELF: '#F44336',
+    HEAD_OPPONENT: '#3F51B5',
+    BODY_OPPONENT: '#3F51B5',
     SHADOW_ATTACK: '#F44336',
     SHADOW_DEFEND: '#3F51B5'
   }
@@ -79,12 +79,12 @@ export default (() => {
   const isSelf = (pos) => isSelfType(_point(pos).type())
 
   const isSelfType = (type) =>
-    type === Point.TYPE.SELF_HEAD || type === Point.TYPE.SELF_BODY
+    type === Point.TYPE.HEAD_SELF || type === Point.TYPE.BODY_SELF
 
   const isOpponent = (pos) => isOpponentType(_point(pos).type())
 
   const isOpponentType = (type) =>
-    type === Point.TYPE.OPPONENT_HEAD || type === Point.TYPE.OPPONENT_BODY
+    type === Point.TYPE.HEAD_OPPONENT || type === Point.TYPE.BODY_OPPONENT
 
   const isSafe = (pos) => isSafeType(_point(pos).type())
 
@@ -172,11 +172,11 @@ export default (() => {
   }
 
   const attackTime = () => {
-    timeTxt.css('color', COLOR.SELF_BODY)
+    timeTxt.css('color', COLOR.BODY_SELF)
   }
 
   const defendTime = () => {
-    timeTxt.css('color', COLOR.OPPONENT_BODY)
+    timeTxt.css('color', COLOR.BODY_OPPONENT)
   }
 
   const startBlinkTime = () => {
@@ -286,12 +286,12 @@ export default (() => {
 
   const _updateHead = (pos, plotType, self) => {
     plotter.drawHead(pos.row(), pos.col(), plotType, self)
-    _point(pos).type(self ? Point.TYPE.SELF_HEAD : Point.TYPE.OPPONENT_HEAD)
+    _point(pos).type(self ? Point.TYPE.HEAD_SELF : Point.TYPE.HEAD_OPPONENT)
   }
 
   const _updateBody = (pos, plotType, self) => {
     plotter.drawBody(pos.row(), pos.col(), plotType, self)
-    _point(pos).type(self ? Point.TYPE.SELF_BODY : Point.TYPE.OPPONENT_BODY)
+    _point(pos).type(self ? Point.TYPE.BODY_SELF : Point.TYPE.BODY_OPPONENT)
   }
 
   const _clear = (pos) => {

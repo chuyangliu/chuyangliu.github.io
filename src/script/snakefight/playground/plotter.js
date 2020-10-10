@@ -130,11 +130,11 @@ export default (() => {
   }
 
   const drawHead = (row, col, type, self) => {
-    _drawHead(row, col, type, self ? color.SELF_HEAD : color.OPPONENT_HEAD)
+    _drawHead(row, col, type, self ? color.HEAD_SELF : color.HEAD_OPPONENT)
   }
 
   const drawBody = (row, col, type, self) => {
-    _drawBody(row, col, type, self ? color.SELF_BODY : color.OPPONENT_BODY)
+    _drawBody(row, col, type, self ? color.BODY_SELF : color.BODY_OPPONENT)
   }
 
   const drawAttackShadow = () => {
