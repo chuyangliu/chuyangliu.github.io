@@ -1,0 +1,17 @@
+[user]
+    name = <name>
+    email = <email>
+[alias]
+    df = diff
+    st = status
+    aa = add -A
+    ci = commit
+    br = branch
+    co = checkout
+    mg = merge
+    rb = rebase
+    cp = cherry-pick
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[core]
+    eol = lf
+    autocrlf = false
