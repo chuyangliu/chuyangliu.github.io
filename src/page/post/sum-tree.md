@@ -28,7 +28,13 @@ $$
 
 ## Proof
 
-Obviously, equation \\(\left(\ref{1}\right)\\) holds when \\(i=1\\) because the root node will always be visited \\(\left( P \left( a_1 \right) = 1 = \dfrac{v \left( a_1 \right)}{v \left( a_1 \right)} \right)\\).
+Obviously, equation \\(\left(\ref{1}\right)\\) holds when \\(i=1\\) because the root node will always be visited:
+
+$$
+\begin{align}
+P \left( a_1 \right) = 1 = \dfrac{v \left( a_1 \right)}{v \left( a_1 \right)}
+\end{align}
+$$
 
 To prove equation \\(\left(\ref{1}\right)\\) holds when \\(i>1\\), we first take a look at a "small" sum tree with \\(3\\) nodes: 
 

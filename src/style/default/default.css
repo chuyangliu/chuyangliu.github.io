@@ -1,15 +1,24 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
 
 h1 {
-  font-family: 'Palatino Linotype', serif;
+  font-family: 'Palatino Linotype', Garamond, 'Times New Roman', serif;
   font-weight: bold;
 }
 
-blockquote {
-  font-size: inherit;
+footer.page-footer {
+  font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+code, pre {
+  font-family: Consolas, 'Courier New', monospace;
+}
+
+code {
+  padding: 1px 4px;
 }
 
 pre {
@@ -17,11 +26,6 @@ pre {
   border: none;
 }
 
-pre, code {
-  font-family: Consolas, monospace;
-}
-
-footer.page-footer {
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 13px;
+blockquote {
+  font-size: inherit;
 }
