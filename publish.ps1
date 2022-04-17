@@ -5,6 +5,7 @@ $RepoBranch = "ghpages"
 $RepoPath = $RepoBranch
 $RepoRoot = (Get-Location).Path
 $RepoDist = "$RepoRoot\out\dist\*"
+$CurrentTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss") + " UTC"
 
 npm install
 npm run lint
@@ -20,10 +21,10 @@ Set-Location $RepoPath
 foreach ($File in (Get-ChildItem)) {
     Remove-Item $File -Force -Recurse
 }
-
 Copy-Item $RepoDist . -Force -Recurse
+
 git add -A
-git commit -m "[$RepoBranch] $(Get-Date -Format "MM/dd/yyyy HH:mm:ss")"
+git commit -m "[$RepoBranch] $CurrentTime"
 git push origin $RepoBranch
 
 Set-Location $RepoRoot
