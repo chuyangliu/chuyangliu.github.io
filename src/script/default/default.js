@@ -1,7 +1,7 @@
 /* global hljs */
 
 if (typeof hljs !== 'undefined') {
-  hljs.initHighlightingOnLoad();
+  hljs.highlightAll();
 }
 
 $(() => {
