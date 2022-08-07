@@ -39,7 +39,7 @@ function execute() {
     url: 'http://127.0.0.1:9017',
     method: 'POST',
     data: {
-      command: 'ls',
+      command: cmd,
     },
     timeout: 10000,
     converters: {
