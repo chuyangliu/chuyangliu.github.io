@@ -1,3 +1,21 @@
+function setButtonState(button, state) {
+  if (state) {
+    button.removeAttr('disabled');
+  } else {
+    button.attr('disabled', 'disabled');
+  }
+}
+
+function startProgressDisplay(output) {
+  return setInterval(() => {
+    output.append('.');
+  }, 300);
+}
+
+function stopProgressDisplay(progressDisplay) {
+  clearInterval(progressDisplay);
+}
+
 function execute() {
   const input = $('input#command');
   const output = $('samp#output');
@@ -6,24 +24,40 @@ function execute() {
 
   input.val('');
   output.text('');
+  setButtonState(btn, false);
 
   if (cmd === '') {
-    output.text('You sent nothing to run. Please try again.');
+    output.append('You sent nothing to run. Please try again.');
+    setButtonState(btn, true);
     return;
   }
 
-  btn.attr('disabled', 'disabled');
   output.append(`> ${cmd}<br>`);
+  const progressDisplay = startProgressDisplay(output);
 
-  var progressTimer = setInterval(() => {
-    output.append(`.`);
-  }, 500);
-
-  setTimeout(() => {
-    clearInterval(progressTimer);
-    output.append(`<br>Haha<br>`);
-    btn.removeAttr('disabled');
-  }, 3000);
+  $.ajax({
+    url: 'http://127.0.0.1:9017',
+    method: 'POST',
+    data: {
+      command: 'ls',
+    },
+    timeout: 10000,
+    converters: {
+      '* text': window.String,
+      'text html': window.String,
+      'text json': window.String,
+      'text xml': window.String,
+    },
+  }).done((resp) => {
+    stopProgressDisplay(progressDisplay);
+    output.append(`<br>${resp}`);
+  }).fail((_, status, error) => {
+    stopProgressDisplay(progressDisplay);
+    output.append('<br>Server is temporarily unavailable. Please try again later.');
+    output.append(`<br>Status=${status}, Error=${error}`);
+  }).always(() => {
+    setButtonState(btn, true);
+  });
 }
 
 $(() => {
