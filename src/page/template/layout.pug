@@ -1,7 +1,7 @@
 block var
   -
     const cfg = {
-      title: "",
+      title: '',
       highlightjs: false,
       mathjax: false,
     }
@@ -10,7 +10,7 @@ mixin head()
   meta(charset='utf-8')
   meta(name='viewport', content='width=device-width, initial-scale=1')
 
-  if cfg.title === ""
+  if cfg.title === ''
     title Chuyang Liu
   else
     title #{cfg.title} - Chuyang Liu
@@ -22,7 +22,7 @@ mixin head()
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/equilibrium-light.min.css',
          integrity='sha512-NP+owW/oTQAAi/rS9vG0BoI9YsEx2TV/RMyu/Q1TALUyQuH7LKARCv7LYIDUZYf6j8ZjVESmHCZlI6i2xTun0Q==' crossorigin='anonymous')
 
-  link(rel='stylesheet', href='/style/default.css')
+  block style
 
   script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js',
          integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==', crossorigin='anonymous')
@@ -38,18 +38,18 @@ mixin head()
     script(async, src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML',
            integrity='sha512-Fv0JVzxvrWFLhiUP8wZYR6VwBZQt0XqB9MhHZE+12lObqIDzg3LOJcCCiRy6g4MCX/MlG+R9IRCWZAHjo9iBgw==', crossorigin='anonymous')
 
-  script(src='/script/default.js')
+  block script
 
 mixin body()
   .container
     .row
       .col-sm-1
       .col-sm-10
-        if cfg.title !== ""
+        if cfg.title !== ''
           h1 #{cfg.title}
           hr
         block content
-        if cfg.title === ""
+        if cfg.title === ''
           include footer/min.pug
         else
           include footer/full.pug

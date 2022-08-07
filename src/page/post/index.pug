@@ -3,5 +3,11 @@ extends ../template/layout.pug
 append var
   - cfg.title = 'Posts'
 
+block style
+  link(rel='stylesheet', href='/style/base.css')
+
+block script
+  script(src='/script/base.js')
+
 block content
   include /markdown/post/index.html

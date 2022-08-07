@@ -25,16 +25,6 @@ const path = {
     src: 'src/media/**/*',
     dst: `${dirDist}/media/`,
   },
-  styleDefault: {
-    src: 'src/style/default/**/*.css',
-    dst: `${dirDist}/style/`,
-    target: 'default.css',
-  },
-  scriptDefault: {
-    src: 'src/script/default/**/*.js',
-    dst: `${dirDist}/script/`,
-    target: 'default.js',
-  },
   markdown: {
     src: 'src/page/**/*.md',
     dst: `${dirOut}/markdown/`,
@@ -44,7 +34,41 @@ const path = {
     dst: `${dirDist}/`,
     srcWatch: 'src/page/**/*.pug',
   },
+  styleBase: {
+    src: 'src/style/base.css',
+    dst: `${dirDist}/style/`,
+    target: 'base.css',
+  },
+  styleIndex: {
+    src: ['src/style/base.css', 'src/style/index.css'],
+    dst: `${dirDist}/style/`,
+    target: 'index.css',
+  },
+  stylePost: {
+    src: ['src/style/base.css', 'src/style/post.css'],
+    dst: `${dirDist}/style/`,
+    target: 'post.css',
+  },
+  scriptBase: {
+    src: 'src/script/base.js',
+    dst: `${dirDist}/script/`,
+    target: 'base.js',
+  },
+  scriptIndex: {
+    src: ['src/script/base.js', 'src/script/index.js'],
+    dst: `${dirDist}/script/`,
+    target: 'index.js',
+  },
+  scriptPost: {
+    src: ['src/script/base.js', 'src/script/post.js'],
+    dst: `${dirDist}/script/`,
+    target: 'post.js',
+  },
 };
+
+function clean() {
+  return del([dirOut]);
+}
 
 function meta() {
   return gulp.src(path.meta.src)
@@ -57,30 +81,6 @@ function media() {
     .pipe(gulp.dest(path.media.dst))
     .pipe(gulpConnect.reload());
 }
-
-function styleDefault() {
-  return gulp.src(path.styleDefault.src)
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.styleDefault.target))
-    .pipe(gulpMinifyCSS())
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.styleDefault.dst))
-    .pipe(gulpConnect.reload());
-}
-
-const style = styleDefault;
-
-function scriptDefault() {
-  return gulp.src(path.scriptDefault.src)
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.scriptDefault.target))
-    .pipe(gulpMinifyJS())
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.scriptDefault.dst))
-    .pipe(gulpConnect.reload());
-}
-
-const script = scriptDefault;
 
 function markdown() {
   return gulp.src(path.markdown.src)
@@ -106,9 +106,69 @@ function pug() {
 
 const page = gulp.series(markdown, pug);
 
-function clean() {
-  return del([dirOut]);
+function styleBase() {
+  return gulp.src(path.styleBase.src)
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.styleBase.target))
+    .pipe(gulpMinifyCSS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
+    .pipe(gulp.dest(path.styleBase.dst))
+    .pipe(gulpConnect.reload());
 }
+
+function styleIndex() {
+  return gulp.src(path.styleIndex.src)
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.styleIndex.target))
+    .pipe(gulpMinifyCSS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
+    .pipe(gulp.dest(path.styleIndex.dst))
+    .pipe(gulpConnect.reload());
+}
+
+function stylePost() {
+  return gulp.src(path.stylePost.src)
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.stylePost.target))
+    .pipe(gulpMinifyCSS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
+    .pipe(gulp.dest(path.stylePost.dst))
+    .pipe(gulpConnect.reload());
+}
+
+const style = gulp.parallel(styleBase, styleIndex, stylePost);
+
+function scriptBase() {
+  return gulp.src(path.scriptBase.src)
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.scriptBase.target))
+    .pipe(gulpMinifyJS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
+    .pipe(gulp.dest(path.scriptBase.dst))
+    .pipe(gulpConnect.reload());
+}
+
+function scriptIndex() {
+  return gulp.src(path.scriptIndex.src)
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.scriptIndex.target))
+    .pipe(gulpMinifyJS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
+    .pipe(gulp.dest(path.scriptIndex.dst))
+    .pipe(gulpConnect.reload());
+}
+
+function scriptPost() {
+  return gulp.src(path.scriptPost.src)
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
+    .pipe(gulpConcat(path.scriptPost.target))
+    .pipe(gulpMinifyJS())
+    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
+    .pipe(gulp.dest(path.scriptPost.dst))
+    .pipe(gulpConnect.reload());
+}
+
+const script = gulp.parallel(scriptBase, scriptIndex, scriptPost);
 
 function server(done) {
   gulpConnect.server({
@@ -119,12 +179,16 @@ function server(done) {
 
   gulp.watch(path.meta.src, meta);
   gulp.watch(path.media.src, media);
-  gulp.watch(path.styleDefault.src, styleDefault);
-  gulp.watch(path.scriptDefault.src, scriptDefault);
   gulp.watch([path.markdown.src, path.pug.srcWatch], page);
+  gulp.watch(path.styleBase.src, styleBase);
+  gulp.watch(path.styleIndex.src, styleIndex);
+  gulp.watch(path.stylePost.src, stylePost);
+  gulp.watch(path.scriptBase.src, scriptBase);
+  gulp.watch(path.scriptIndex.src, scriptIndex);
+  gulp.watch(path.scriptPost.src, scriptPost);
 
   done();
 }
 
-exports.build = gulp.series(clean, gulp.parallel(meta, media, style, script, page));
+exports.build = gulp.series(clean, gulp.parallel(meta, media, page, style, script));
 exports.server = gulp.series(exports.build, server);
