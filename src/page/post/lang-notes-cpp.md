@@ -1,7 +1,7 @@
 1. 
   > **C++ Arithmetic Types**
   >
-  > ![](/media/default/cpp_primer_5_tbl_2_1.png)
+  > ![](/media/cpp_primer_5_tbl_2_1.png)
   > 
   > <footer>C++ Primer (5th Edition), P60</footer>
 
@@ -25,7 +25,7 @@
 5. 
   > **Character and String Literals**
   >
-  > ![](/media/default/cpp_primer_5_tbl_2_2.png)
+  > ![](/media/cpp_primer_5_tbl_2_2.png)
   > 
   > <footer>C++ Primer (5th Edition), P68</footer>
 
@@ -1035,7 +1035,7 @@
   >
   > The *new standard* introduced several functions that convert between numeric data and library `string`s:
   >
-  > ![](/media/default/cpp_primer_5_tbl_9_16.png)
+  > ![](/media/cpp_primer_5_tbl_9_16.png)
   >
   > In `string` to numeric data converstions:
   >
@@ -1190,9 +1190,9 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 85. 
   > **`iostream` Iterators**
   >
-  > ![](/media/default/cpp_primer_5_tbl_10_3.png)
+  > ![](/media/cpp_primer_5_tbl_10_3.png)
   >
-  > ![](/media/default/cpp_primer_5_tbl_10_4.png)
+  > ![](/media/cpp_primer_5_tbl_10_4.png)
   >
   > What is more useful is that we can rewrite this program as
   > 
@@ -1230,14 +1230,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 87. 
   > **Iterator Categories**
   >
-  > ![](/media/default/cpp_primer_5_tbl_10_5.png)
+  > ![](/media/cpp_primer_5_tbl_10_5.png)
   >
   > <footer>C++ Primer (5th Edition), P499</footer>
 
 88. 
   > **Container-Specific Algorithms**
   >
-  > ![](/media/default/cpp_primer_5_tbl_10_6.png)
+  > ![](/media/cpp_primer_5_tbl_10_6.png)
   >
   > The list member versions should be used **in preference** to the generic algorithms for `list`s and `forward_list`s.
   > 
@@ -1246,7 +1246,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 89. 
   > **The `splice` Members**
   >
-  > ![](/media/default/cpp_primer_5_tbl_10_7.png)
+  > ![](/media/cpp_primer_5_tbl_10_7.png)
   > 
   > <footer>C++ Primer (5th Edition), P506</footer>
 
@@ -1429,7 +1429,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 108. 
   > **`allocator` Algorithms**
   >
-  > ![](/media/default/cpp_primer_5_tbl_12_8.png)
+  > ![](/media/cpp_primer_5_tbl_12_8.png)
   >
   > <footer>C++ Primer (5th Edition), P582</footer>
 
@@ -2337,7 +2337,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 163. 
   > **Standard Type Transformation Templates**
   >
-  > ![](/media/default/cpp_primer_5_tbl_16_1.png)
+  > ![](/media/cpp_primer_5_tbl_16_1.png)
   >
   > <footer>C++ Primer (5th Edition), P809</footer>
 
@@ -2617,7 +2617,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 175. 
   > **Regular Expression Library Classes**
   >
-  > ![](/media/default/cpp_primer_5_tbl_17_8.png)
+  > ![](/media/cpp_primer_5_tbl_17_8.png)
   >
   > The important point is that the RE library types we use must match the type of the input sequence.
   >
@@ -2646,21 +2646,21 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 177. 
   > **Manipulators Defined in `iostream`**
   >
-  > ![](/media/default/cpp_primer_5_tbl_17_17.png)
+  > ![](/media/cpp_primer_5_tbl_17_17.png)
   >
   > <footer>C++ Primer (5th Edition), P890</footer>
 
 178. 
   > **Manipulators Defined in `iomanip`**
   >
-  > ![](/media/default/cpp_primer_5_tbl_17_18.png)
+  > ![](/media/cpp_primer_5_tbl_17_18.png)
   >
   > <footer>C++ Primer (5th Edition), P893</footer>
 
 179. 
   > **Single-Byte Low-Level IO Operations**
   >
-  > ![](/media/default/cpp_primer_5_tbl_17_19.png)
+  > ![](/media/cpp_primer_5_tbl_17_19.png)
   >
   > The `peek` function and the version of `get` that takes no argument return a character from the input stream as an `int`. This fact can be surprising; it might seem more natural to have these functions return a `char`.
   >
@@ -2688,7 +2688,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 180. 
   > **Multi-Byte Low-Level IO Operations**
   >
-  > ![](/media/default/cpp_primer_5_tbl_17_20.png)
+  > ![](/media/cpp_primer_5_tbl_17_20.png)
   >
   > Several of the read operations read an unknown number of bytes from the input. We can call `gcount` to determine how many characters the last unformatted input operation read. It is essential to call `gcount` before any intervening unformatted input operation. In particular, the single-character operations that put characters back on the stream are also unformatted input operations. If `peek`, `unget`, or `putback` are called before calling `gcount`, then the return value will be 0.
   >
@@ -2704,7 +2704,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 182. 
   > **Seek and Tell Functions**
   >
-  > ![](/media/default/cpp_primer_5_tbl_17_21.png)
+  > ![](/media/cpp_primer_5_tbl_17_21.png)
   >
   > The fact that the library distinguishes between the "putting" and "getting" versions of the seek and tell functions can be misleading. Even though the library makes this distinction, it maintains only a *single* marker in a stream—there is *not* a distinct read marker and write marker.
   >
@@ -2981,7 +2981,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
 201. 
   > In a virtual derivation, the virtual base is initialized by the most derived constructor. In our example, when we create a `Panda` object, the `Panda` constructor alone controls how the `ZooAnimal` base class is initialized.
   >
-  > ![](/media/default/cpp_primer_5_fig_18_3.png)
+  > ![](/media/cpp_primer_5_fig_18_3.png)
   >
   > Of course, each class in the hierarchy might at some point be the "most derived" object. As long as we can create independent objects of a type derived from a virtual base, the constructors in that class must initialize its virtual base. For example, in our hierarchy, when a `Bear` (or a `Raccoon`) object is created, there is no further derived type involved. In this case, the `Bear` (or `Raccoon`) constructors directly initialize their `ZooAnimal` base as usual.
   >

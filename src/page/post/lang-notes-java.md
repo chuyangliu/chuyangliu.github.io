@@ -3,7 +3,7 @@
   >
   > Java determines the size of each primitive type. These sizes don’t change from one machine architecture to another as they do in most languages. This size invariance is one reason Java programs are more portable than programs in most other languages.
   >
-  > ![](/media/default/thinking_in_java_4_tbl_primitive_types.png)
+  > ![](/media/thinking_in_java_4_tbl_primitive_types.png)
   >
   > All numeric types are **signed**, so don’t look for unsigned types.
   > 
@@ -346,7 +346,7 @@
 26. 
   > **Simple Container Taxonomy**
   >
-  > ![](/media/default/thinking_in_java_4_fig_simple_container_taxonomy.png)
+  > ![](/media/thinking_in_java_4_fig_simple_container_taxonomy.png)
   >
   > The dotted boxes represent interfaces, and the solid boxes are regular (concrete) classes. The dotted lines with hollow arrows indicate that a particular class is implementing an interface. The solid arrows show that a class can produce objects of the class the arrow is pointing to. For example, any `Collection` can produce an `Iterator`, and a `List` can produce a `ListIterator` (as well as an ordinary `Iterator`, since `List` is inherited from `Collection`).
   >
@@ -402,7 +402,7 @@
 31. 
   > **`Formatter` conversions**
   >
-  > ![](/media/default/thinking_in_java_4_tbl_conversion_chars.png)
+  > ![](/media/thinking_in_java_4_tbl_conversion_chars.png)
   >
   > There are more obscure conversion types and other format specifier options. You can read about these in the JDK documentation for the `Formatter` class.
   >

@@ -116,7 +116,7 @@ $$
 
 ## Neural Network
 
-![](/media/default/nn.png)
+![](/media/nn.png)
 
 $$
 a^{(1)} = \begin{bmatrix} x_0 \\\\ x_1 \\\\ \vdots \\\\ x_n \end{bmatrix},
@@ -166,19 +166,19 @@ $$
 
 ## Convolutional Neural Network
 
-![](/media/default/cnn.jpg)
+![](/media/cnn.jpg)
 
 ### Convolution
 
 The picture below shows a 5x5 image convoluted with a 3x3 convolution kernel, which generates a 3x3 feature map:
 
-![](/media/default/conv.gif)
+![](/media/conv.gif)
 
 ### Pooling/Subsampling
 
 The picture below shows a 20x20 feature map pooled with a 10x10 pooling kernel, which generates a 2x2 feature map:
 
-![](/media/default/pool.gif)
+![](/media/pool.gif)
 
 ---
 

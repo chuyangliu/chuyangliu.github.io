@@ -14,7 +14,7 @@ Sum tree is a data structure similar to [binary heap][wiki-binary-heap]. Instead
 
 Suppose we have a data set of \\(8\\) elements and the priority values are \\(3,10,12,4,1,2,8,2\\), respectively. Now we want to sample one element from this data set and expect that elements with higher priority will be more likely to be sampled. To solve this problem, we can build a sum tree below:
 
-![](/media/default/sum_tree.png)
+![](/media/sum_tree.png)
 
 From the picture<sup>[[2]](#references)</sup>, we can see that the tree has \\(8\\) leaves storing the priority values of the \\(8\\) elements. The value of each inner node is the sum of the values of its two children. Thus, the value of the root node is the sum of all priority values. In this problem, \\(42\\).
 
@@ -38,7 +38,7 @@ $$
 
 To prove equation \\(\left(\ref{1}\right)\\) holds when \\(i>1\\), we first take a look at a "small" sum tree with \\(3\\) nodes: 
 
-![](/media/default/sum_tree_trivial.png)
+![](/media/sum_tree_trivial.png)
 
 According to the sampling method, we start by sampling a number within the interval \\( \left[ 0,a+b \right] \\). Suppose we get a number \\(x\\), if \\(x \leqslant a\\), the left child will be sampled. Otherwise, we will sample the right child. Thus, 
 
