@@ -36,7 +36,7 @@ function execute() {
   const progressDisplay = startProgressDisplay(output);
 
   $.ajax({
-    url: 'http://127.0.0.1:9017',
+    url: 'http://localhost:9017',
     method: 'POST',
     data: {
       command: cmd,
@@ -51,10 +51,10 @@ function execute() {
   }).done((resp) => {
     stopProgressDisplay(progressDisplay);
     output.append(`<br>${resp}`);
-  }).fail((_, status, error) => {
+  }).fail((xhr, status, error) => {
     stopProgressDisplay(progressDisplay);
     output.append('<br>Server is temporarily unavailable. Please try again later.');
-    output.append(`<br>Status=${status}, Error=${error}`);
+    output.append(`<br>Status=${status}, Error=${error}, Details=${xhr.responseText}`);
   }).always(() => {
     setButtonState(btn, true);
   });
