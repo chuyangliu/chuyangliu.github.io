@@ -56,8 +56,8 @@ function execute() {
 }
 
 $(() => {
-  if (location.protocol !== "http:") {
-    location.protocol = "http:";
+  if (window.location.protocol !== 'http:') {
+    window.location.protocol = 'http:';
   }
 
   $('form').submit((event) => {
