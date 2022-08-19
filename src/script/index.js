@@ -36,7 +36,7 @@ function execute() {
       data: {
         command: cmd,
       },
-      timeout: 10000,
+      timeout: 5000,
       converters: {
         '* text': window.String,
         'text html': window.String,
