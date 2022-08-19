@@ -1,3 +1,5 @@
+const MSG_UNREACHABLE = "I'm undergoing maintenance right now. Please try again later.";
+
 function setButtonState(button, state) {
   if (state) {
     button.removeAttr('disabled');
@@ -14,6 +16,10 @@ function startProgressDisplay(output) {
 
 function stopProgressDisplay(progressDisplay) {
   clearInterval(progressDisplay);
+}
+
+function normalizeResponse(resp) {
+  return resp.replaceAll('\r', '').replaceAll('\n', '<br>');
 }
 
 function execute() {
@@ -45,10 +51,10 @@ function execute() {
       },
     }).done((resp) => {
       stopProgressDisplay(progressDisplay);
-      output.append(`<br>${resp}`);
+      output.append(`<br>${normalizeResponse(resp)}`);
     }).fail(() => {
       stopProgressDisplay(progressDisplay);
-      output.append('<br>I\'m undergoing maintenance right now. Please try again later.');
+      output.append(`<br>${MSG_UNREACHABLE}`);
     }).always(() => {
       setButtonState(btn, true);
     });
