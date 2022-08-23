@@ -29,7 +29,12 @@ function execute() {
   const cmd = input.val();
 
   input.val('');
-  output.text('');
+
+  if (cmd === 'clear') {
+    output.text('');
+    return;
+  }
+
   setButtonState(btn, false);
 
   output.append(`> ${cmd}<br>`);

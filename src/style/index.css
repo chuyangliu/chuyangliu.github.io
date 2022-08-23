@@ -5,3 +5,7 @@ form {
 button {
   margin-left: 6px;
 }
+
+samp {
+  font-size: 14px;
+}
