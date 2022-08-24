@@ -1,4 +1,4 @@
-const MSG_UNREACHABLE = "I'm undergoing maintenance right now. Please try again later.";
+const MSG_UNREACHABLE = 'I\'m undergoing maintenance right now. Please try again later.';
 
 function setButtonState(button, state) {
   if (state) {
@@ -8,18 +8,12 @@ function setButtonState(button, state) {
   }
 }
 
-function startProgressDisplay(output) {
-  return setInterval(() => {
-    output.append('.');
-  }, 300);
+function print(output, msg) {
+  output.append(msg.replaceAll('\r', '').replaceAll('\n', '<br>'));
 }
 
-function stopProgressDisplay(progressDisplay) {
-  clearInterval(progressDisplay);
-}
-
-function normalizeResponse(resp) {
-  return resp.replaceAll('\r', '').replaceAll('\n', '<br>');
+function printLn(output, msg) {
+  print(output, `${msg}<br>`);
 }
 
 function execute() {
@@ -29,16 +23,10 @@ function execute() {
   const cmd = input.val();
 
   input.val('');
-
-  if (cmd === 'clear') {
-    output.text('');
-    return;
-  }
-
+  output.text('');
   setButtonState(btn, false);
 
-  output.append(`> ${cmd}<br>`);
-  const progressDisplay = startProgressDisplay(output);
+  printLn(output, cmd.trim().length <= 0 ? '> (empty)' : `> ${cmd}`);
 
   setTimeout(() => {
     $.ajax({
@@ -47,7 +35,7 @@ function execute() {
       data: {
         command: cmd,
       },
-      timeout: 5000,
+      timeout: 3000,
       converters: {
         '* text': window.String,
         'text html': window.String,
@@ -55,11 +43,9 @@ function execute() {
         'text xml': window.String,
       },
     }).done((resp) => {
-      stopProgressDisplay(progressDisplay);
-      output.append(`<br>${normalizeResponse(resp)}`);
+      print(output, resp);
     }).fail(() => {
-      stopProgressDisplay(progressDisplay);
-      output.append(`<br>${MSG_UNREACHABLE}`);
+      print(output, MSG_UNREACHABLE);
     }).always(() => {
       setButtonState(btn, true);
     });
