@@ -30,7 +30,7 @@ function execute() {
 
   setTimeout(() => {
     $.ajax({
-      url: 'http://localhost:9017',
+      url: 'http://bstbst.westus.cloudapp.azure.com:9017',
       method: 'POST',
       data: {
         command: cmd,
