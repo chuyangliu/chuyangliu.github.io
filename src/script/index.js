@@ -1,3 +1,4 @@
+const SERVER_ENDPOINT = 'http://bstbst.westus.cloudapp.azure.com:9017';
 const MSG_UNREACHABLE = 'I\'m undergoing maintenance right now. Please try again later.';
 
 function setButtonState(button, state) {
@@ -30,7 +31,7 @@ function execute() {
 
   setTimeout(() => {
     $.ajax({
-      url: 'http://bstbst.westus.cloudapp.azure.com:9017',
+      url: SERVER_ENDPOINT,
       method: 'POST',
       data: {
         command: cmd,
