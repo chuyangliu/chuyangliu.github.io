@@ -1,5 +1,6 @@
-function Set-LocationRoot {
-    Set-Location C:\root\
+function Set-LocationRepo {
+    Set-Location C:\Users\chuya\repo\
 }
 
-Set-Alias -Name rr -Value Set-LocationRoot
+Set-Alias -Name rr -Value Set-LocationRepo
+Set-Alias -Name ll -Value Get-ChildItem
