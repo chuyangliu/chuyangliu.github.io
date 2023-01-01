@@ -8,6 +8,7 @@ $RepoDist = "$RepoRoot\out\dist\*"
 $CurrentTime = (Get-Date).ToUniversalTime().ToString("yyyy-MM-dd HH:mm:ss") + " UTC"
 
 npm install
+npm run lint
 npm run build
 
 if (Test-Path $RepoPath) {

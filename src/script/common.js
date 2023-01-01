@@ -1,3 +1,6 @@
+/* global hljs */
+/* global onDomReady */
+
 $(() => {
   if (window.location.protocol !== 'http:') {
     window.location.protocol = 'http:';

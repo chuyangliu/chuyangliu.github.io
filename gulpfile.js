@@ -146,11 +146,11 @@ function server(done) {
     livereload: true,
   });
 
-  gulp.watch("src/meta/**/*", meta);
-  gulp.watch("src/media/**/*", media);
-  gulp.watch("src/page/**/*", page);
-  gulp.watch("src/style/**/*", style);
-  gulp.watch("src/script/**/*", script);
+  gulp.watch('src/meta/**/*', meta);
+  gulp.watch('src/media/**/*', media);
+  gulp.watch('src/page/**/*', page);
+  gulp.watch('src/style/**/*', style);
+  gulp.watch('src/script/**/*', script);
 
   done();
 }
