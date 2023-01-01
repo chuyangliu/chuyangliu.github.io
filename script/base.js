@@ -1,1 +1,0 @@
-"undefined"!=typeof hljs&&hljs.highlightAll();
