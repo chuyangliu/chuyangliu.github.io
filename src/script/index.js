@@ -1,20 +1,11 @@
 const SERVER_ENDPOINT = 'http://bstbst.westus.cloudapp.azure.com:9017';
 const MSG_UNREACHABLE = 'I\'m undergoing maintenance right now. Please try again later.';
 
-function setButtonState(button, state) {
-  if (state) {
-    button.removeAttr('disabled');
-  } else {
-    button.attr('disabled', 'disabled');
-  }
-}
-
-function print(output, msg) {
-  output.append(msg.replaceAll('\r', '').replaceAll('\n', '<br>'));
-}
-
-function printLn(output, msg) {
-  print(output, `${msg}<br>`);
+function onDomReady() {
+  $('form').submit((event) => {
+    execute();
+    event.preventDefault();
+  });
 }
 
 function execute() {
@@ -53,13 +44,18 @@ function execute() {
   }, 1000);
 }
 
-$(() => {
-  if (window.location.protocol !== 'http:') {
-    window.location.protocol = 'http:';
+function setButtonState(button, state) {
+  if (state) {
+    button.removeAttr('disabled');
+  } else {
+    button.attr('disabled', 'disabled');
   }
+}
 
-  $('form').submit((event) => {
-    execute();
-    event.preventDefault();
-  });
-});
+function printLn(output, msg) {
+  print(output, `${msg}<br>`);
+}
+
+function print(output, msg) {
+  output.append(msg.replaceAll('\r', '').replaceAll('\n', '<br>'));
+}

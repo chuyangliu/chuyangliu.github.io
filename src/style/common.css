@@ -25,3 +25,7 @@ pre {
   padding: 0;
   border: none;
 }
+
+blockquote {
+  font-size: inherit;
+}

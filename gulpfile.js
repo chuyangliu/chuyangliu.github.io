@@ -32,37 +32,26 @@ const path = {
   pug: {
     src: ['src/page/**/*.pug', '!src/page/template/**/*.pug'],
     dst: `${dirDist}/`,
-    srcWatch: 'src/page/**/*.pug',
   },
-  styleBase: {
-    src: 'src/style/base.css',
+  styleCommon: {
+    src: 'src/style/common.css',
     dst: `${dirDist}/style/`,
-    target: 'base.css',
+    target: 'common.css',
   },
   styleIndex: {
-    src: ['src/style/base.css', 'src/style/index.css'],
+    src: ['src/style/common.css', 'src/style/index.css'],
     dst: `${dirDist}/style/`,
     target: 'index.css',
   },
-  stylePost: {
-    src: ['src/style/base.css', 'src/style/post.css'],
-    dst: `${dirDist}/style/`,
-    target: 'post.css',
-  },
-  scriptBase: {
-    src: 'src/script/base.js',
+  scriptCommon: {
+    src: 'src/script/common.js',
     dst: `${dirDist}/script/`,
-    target: 'base.js',
+    target: 'common.js',
   },
   scriptIndex: {
-    src: ['src/script/base.js', 'src/script/index.js'],
+    src: ['src/script/common.js', 'src/script/index.js'],
     dst: `${dirDist}/script/`,
     target: 'index.js',
-  },
-  scriptPost: {
-    src: ['src/script/base.js', 'src/script/post.js'],
-    dst: `${dirDist}/script/`,
-    target: 'post.js',
   },
 };
 
@@ -106,13 +95,13 @@ function pug() {
 
 const page = gulp.series(markdown, pug);
 
-function styleBase() {
-  return gulp.src(path.styleBase.src)
+function styleCommon() {
+  return gulp.src(path.styleCommon.src)
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.styleBase.target))
+    .pipe(gulpConcat(path.styleCommon.target))
     .pipe(gulpMinifyCSS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.styleBase.dst))
+    .pipe(gulp.dest(path.styleCommon.dst))
     .pipe(gulpConnect.reload());
 }
 
@@ -126,25 +115,15 @@ function styleIndex() {
     .pipe(gulpConnect.reload());
 }
 
-function stylePost() {
-  return gulp.src(path.stylePost.src)
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.stylePost.target))
-    .pipe(gulpMinifyCSS())
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.stylePost.dst))
-    .pipe(gulpConnect.reload());
-}
+const style = gulp.parallel(styleCommon, styleIndex);
 
-const style = gulp.parallel(styleBase, styleIndex, stylePost);
-
-function scriptBase() {
-  return gulp.src(path.scriptBase.src)
+function scriptCommon() {
+  return gulp.src(path.scriptCommon.src)
     .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.scriptBase.target))
+    .pipe(gulpConcat(path.scriptCommon.target))
     .pipe(gulpMinifyJS())
     .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.scriptBase.dst))
+    .pipe(gulp.dest(path.scriptCommon.dst))
     .pipe(gulpConnect.reload());
 }
 
@@ -158,17 +137,7 @@ function scriptIndex() {
     .pipe(gulpConnect.reload());
 }
 
-function scriptPost() {
-  return gulp.src(path.scriptPost.src)
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.init()))
-    .pipe(gulpConcat(path.scriptPost.target))
-    .pipe(gulpMinifyJS())
-    .pipe(gulpIf(cfg.dev, gulpSourceMap.write()))
-    .pipe(gulp.dest(path.scriptPost.dst))
-    .pipe(gulpConnect.reload());
-}
-
-const script = gulp.parallel(scriptBase, scriptIndex, scriptPost);
+const script = gulp.parallel(scriptCommon, scriptIndex);
 
 function server(done) {
   gulpConnect.server({
@@ -177,15 +146,11 @@ function server(done) {
     livereload: true,
   });
 
-  gulp.watch(path.meta.src, meta);
-  gulp.watch(path.media.src, media);
-  gulp.watch([path.markdown.src, path.pug.srcWatch], page);
-  gulp.watch(path.styleBase.src, styleBase);
-  gulp.watch(path.styleIndex.src, styleIndex);
-  gulp.watch(path.stylePost.src, stylePost);
-  gulp.watch(path.scriptBase.src, scriptBase);
-  gulp.watch(path.scriptIndex.src, scriptIndex);
-  gulp.watch(path.scriptPost.src, scriptPost);
+  gulp.watch("src/meta/**/*", meta);
+  gulp.watch("src/media/**/*", media);
+  gulp.watch("src/page/**/*", page);
+  gulp.watch("src/style/**/*", style);
+  gulp.watch("src/script/**/*", script);
 
   done();
 }
