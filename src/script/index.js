@@ -55,6 +55,10 @@ function execute() {
 
 // Add the method explicitly to global scope to silence eslint
 this.onDomReady = () => {
+  if (window.location.protocol !== 'http:') {
+    window.location.protocol = 'http:';
+  }
+
   $('form').submit((event) => {
     execute();
     event.preventDefault();
