@@ -1,1 +1,0 @@
-$((()=>{$("img").addClass("img-responsive center-block"),$("table").addClass("table table-bordered"),"undefined"!=typeof hljs&&hljs.highlightAll(),"function"==typeof onDomReady&&onDomReady()}));
