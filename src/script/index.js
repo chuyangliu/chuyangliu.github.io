@@ -1,23 +1,25 @@
+const common = require('./common');
+
 const SERVER_ENDPOINT = 'http://bstbst.westus.cloudapp.azure.com:9017';
 const MSG_UNREACHABLE = 'I\'m undergoing maintenance right now. Please try again later.';
 
-function print(output, msg) {
+const print = (output, msg) => {
   output.append(msg.replaceAll('\r', '').replaceAll('\n', '<br>'));
-}
+};
 
-function printLn(output, msg) {
+const printLn = (output, msg) => {
   print(output, `${msg}<br>`);
-}
+};
 
-function setButtonState(button, state) {
+const setButtonState = (button, state) => {
   if (state) {
     button.removeAttr('disabled');
   } else {
     button.attr('disabled', 'disabled');
   }
-}
+};
 
-function execute() {
+const execute = () => {
   const input = $('input#command');
   const output = $('samp#output');
   const btn = $('button#run');
@@ -51,16 +53,17 @@ function execute() {
       setButtonState(btn, true);
     });
   }, 1000);
-}
+};
 
-// Add the method explicitly to global scope to silence eslint
-this.onDomReady = () => {
+$(() => {
   if (window.location.protocol !== 'http:') {
     window.location.protocol = 'http:';
   }
+
+  common.init();
 
   $('form').submit((event) => {
     execute();
     event.preventDefault();
   });
-};
+});
