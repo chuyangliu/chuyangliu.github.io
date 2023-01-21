@@ -1,6 +1,6 @@
 const common = require('./common');
 
-const SERVER_ENDPOINT = 'http://bstbst.westus.cloudapp.azure.com:9017';
+const SERVER_ENDPOINT = 'https://chuyangliu.top/bastion';
 const MSG_UNREACHABLE = 'I\'m undergoing maintenance right now. Please try again later.';
 
 const print = (output, msg) => {
@@ -56,10 +56,6 @@ const execute = () => {
 };
 
 $(() => {
-  if (window.location.protocol !== 'http:') {
-    window.location.protocol = 'http:';
-  }
-
   common.init();
 
   $('form').submit((event) => {
