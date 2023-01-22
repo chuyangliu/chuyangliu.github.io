@@ -13,9 +13,9 @@
 3. 
   > Use `double` for floating-point computations; `float` usually does not have enough precision, and the cost of double-precision calculations versus single-precision is negligible. In fact, on some machines, double-precision operations are faster than single. The precision offered by `long double` usually is unnecessary and often entails considerable run-time cost.
   > 
+  > See also [float vs double - C++ Forum](http://www.cplusplus.com/forum/beginner/214007/).
+  >
   > <footer>C++ Primer (5th Edition), P63</footer>
-
-  See also [float vs double - C++ Forum](http://www.cplusplus.com/forum/beginner/214007/).
 
 4. 
   > **Caution: Don’t Mix Signed and Unsigned Types.**
