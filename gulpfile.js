@@ -10,7 +10,7 @@ const markdown = require('gulp-markdown');
 const pug = require('gulp-pug');
 
 const cssmin = require('gulp-clean-css');
-const concat = require('gulp-concat');
+const cssimport = require('gulp-cssimport');
 
 const jsmin = require('gulp-uglify-es').default;
 const sourcemaps = require('gulp-sourcemaps');
@@ -18,45 +18,49 @@ const browserify = require('browserify');
 const vinylsource = require('vinyl-source-stream');
 const vinylbuffer = require('vinyl-buffer');
 
-const dirOut = './out';
+const dirOut = 'out';
 const dirDist = `${dirOut}/dist`;
 
-const path = {
+const paths = {
   meta: {
-    src: './src/meta/**/*',
-    dst: `./${dirDist}/`,
+    src: 'src/meta/**/*',
+    dst: `${dirDist}/`,
   },
   media: {
-    src: './src/media/**/*',
-    dst: `./${dirDist}/media/`,
+    src: 'src/media/**/*',
+    dst: `${dirDist}/media/`,
   },
-  pageMarkdown: {
-    src: './src/page/**/*.md',
-    dst: `./${dirOut}/markdown/`,
+  page: {
+    markdown: {
+      src: 'src/page/**/*.md',
+      dst: `${dirOut}/markdown/`,
+    },
+    pug: {
+      src: ['src/page/**/*.pug', '!src/page/template/**/*.pug'],
+      dst: `${dirDist}/`,
+    },
   },
-  pagePug: {
-    src: ['./src/page/**/*.pug', '!./src/page/template/**/*.pug'],
-    dst: `./${dirDist}/`,
+  style: {
+    default: {
+      src: 'src/style/default.css',
+      dst: `${dirDist}/style/`,
+    },
+    index: {
+      src: 'src/style/index.css',
+      dst: `${dirDist}/style/`,
+    },
   },
-  styleDefault: {
-    src: './src/style/default.css',
-    dst: `./${dirDist}/style/`,
-    target: './default.css',
-  },
-  styleIndex: {
-    src: ['./src/style/default.css', './src/style/index.css'],
-    dst: `./${dirDist}/style/`,
-    target: './index.css',
-  },
-  scriptDefault: {
-    src: './src/script/default.js',
-    dst: `./${dirDist}/script/`,
-    target: './default.js',
-  },
-  scriptIndex: {
-    src: './src/script/index.js',
-    dst: `./${dirDist}/script/`,
-    target: './index.js',
+  script: {
+    default: {
+      src: 'src/script/default.js',
+      dst: `${dirDist}/script/`,
+      target: 'default.js',
+    },
+    index: {
+      src: 'src/script/index.js',
+      dst: `${dirDist}/script/`,
+      target: 'index.js',
+    },
   },
 };
 
@@ -65,25 +69,25 @@ function clean() {
 }
 
 function meta() {
-  return gulp.src(path.meta.src)
-    .pipe(gulp.dest(path.meta.dst))
+  return gulp.src(paths.meta.src)
+    .pipe(gulp.dest(paths.meta.dst))
     .pipe(connect.reload());
 }
 
 function media() {
-  return gulp.src(path.media.src)
-    .pipe(gulp.dest(path.media.dst))
+  return gulp.src(paths.media.src)
+    .pipe(gulp.dest(paths.media.dst))
     .pipe(connect.reload());
 }
 
 function pageMarkdown() {
-  return gulp.src(path.pageMarkdown.src)
+  return gulp.src(paths.page.markdown.src)
     .pipe(markdown())
-    .pipe(gulp.dest(path.pageMarkdown.dst));
+    .pipe(gulp.dest(paths.page.markdown.dst));
 }
 
 function pagePug() {
-  return gulp.src(path.pagePug.src)
+  return gulp.src(paths.page.pug.src)
     .pipe(pug({
       basedir: dirOut,
     }))
@@ -91,36 +95,36 @@ function pagePug() {
       collapseWhitespace: true,
       removeComments: true,
     }))
-    .pipe(gulp.dest(path.pagePug.dst))
+    .pipe(gulp.dest(paths.page.pug.dst))
     .pipe(connect.reload());
 }
 
 const page = gulp.series(pageMarkdown, pagePug);
 
-function styleDefault() {
-  return gulp.src(path.styleDefault.src)
-    .pipe(concat(path.styleDefault.target))
+function styleStream(path) {
+  return gulp.src(path.src)
+    .pipe(cssimport())
     .pipe(cssmin())
-    .pipe(gulp.dest(path.styleDefault.dst))
+    .pipe(gulp.dest(path.dst))
     .pipe(connect.reload());
 }
 
+function styleDefault() {
+  return styleStream(paths.style.default);
+}
+
 function styleIndex() {
-  return gulp.src(path.styleIndex.src)
-    .pipe(concat(path.styleIndex.target))
-    .pipe(cssmin())
-    .pipe(gulp.dest(path.styleIndex.dst))
-    .pipe(connect.reload());
+  return styleStream(paths.style.index);
 }
 
 const style = gulp.parallel(styleDefault, styleIndex);
 
-function scriptDefault() {
+function scriptStream(path) {
   return browserify({
-    entries: path.scriptDefault.src,
+    entries: path.src,
     debug: true,
   }).bundle()
-    .pipe(vinylsource(path.scriptDefault.target))
+    .pipe(vinylsource(path.target))
     .pipe(vinylbuffer())
     .pipe(gulpif(cfg.dev, sourcemaps.init({ loadMaps: true })))
     .pipe(jsmin({
@@ -129,26 +133,16 @@ function scriptDefault() {
       },
     }))
     .pipe(gulpif(cfg.dev, sourcemaps.write()))
-    .pipe(gulp.dest(path.scriptDefault.dst))
+    .pipe(gulp.dest(path.dst))
     .pipe(connect.reload());
 }
 
+function scriptDefault() {
+  return scriptStream(paths.script.default);
+}
+
 function scriptIndex() {
-  return browserify({
-    entries: path.scriptIndex.src,
-    debug: true,
-  }).bundle()
-    .pipe(vinylsource(path.scriptIndex.target))
-    .pipe(vinylbuffer())
-    .pipe(gulpif(cfg.dev, sourcemaps.init({ loadMaps: true })))
-    .pipe(jsmin({
-      compress: {
-        drop_console: !cfg.dev,
-      },
-    }))
-    .pipe(gulpif(cfg.dev, sourcemaps.write()))
-    .pipe(gulp.dest(path.scriptIndex.dst))
-    .pipe(connect.reload());
+  return scriptStream(paths.script.index);
 }
 
 const script = gulp.parallel(scriptDefault, scriptIndex);
@@ -160,11 +154,11 @@ function server(done) {
     livereload: true,
   });
 
-  gulp.watch('./src/meta/**/*', meta);
-  gulp.watch('./src/media/**/*', media);
-  gulp.watch('./src/page/**/*', page);
-  gulp.watch('./src/style/**/*', style);
-  gulp.watch('./src/script/**/*', script);
+  gulp.watch('src/meta/**/*', meta);
+  gulp.watch('src/media/**/*', media);
+  gulp.watch('src/page/**/*', page);
+  gulp.watch('src/style/**/*', style);
+  gulp.watch('src/script/**/*', script);
 
   done();
 }
