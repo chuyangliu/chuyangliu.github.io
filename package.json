@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint": "eslint gulpfile.js ./src/script/**/*.js",
+    "lint": "eslint gulpfile.js src/script/**/*.js",
     "build": "gulp build",
     "server": "gulp server --dev"
   },
