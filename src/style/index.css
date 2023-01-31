@@ -1,13 +1,13 @@
 @import 'default.css';
 
-form {
-  margin-bottom: 10px;
+samp {
+  font-size: 14px;
 }
 
 button {
   margin-left: 6px;
 }
 
-samp {
-  font-size: 14px;
+button#run:focus {
+  outline: none;
 }
