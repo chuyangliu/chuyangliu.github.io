@@ -1,9 +1,12 @@
 extends ../template/layout.pug
 
 append var
-  - cfg.title = 'Sum Tree'
   - cfg.canonical = 'https://www.chuyangliu.com/post/sum-tree.html'
+  - cfg.title = 'Sum Tree'
   - cfg.mathjax = true
+
+block meta
+  meta(name='description', content='Introduction to Sum Tree data structure by Chuyang Liu.')
 
 block style
   link(rel='stylesheet', href='/style/default.css')

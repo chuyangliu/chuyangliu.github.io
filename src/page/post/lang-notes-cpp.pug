@@ -1,9 +1,12 @@
 extends ../template/layout.pug
 
 append var
-  - cfg.title = 'Language Notes (C++)'
   - cfg.canonical = 'https://www.chuyangliu.com/post/lang-notes-cpp.html'
+  - cfg.title = 'C++ Language Notes'
   - cfg.highlighjs = true
+
+block meta
+  meta(name='description', content='C++ programming language notes by Chuyang Liu.')
 
 block style
   link(rel='stylesheet', href='/style/default.css')

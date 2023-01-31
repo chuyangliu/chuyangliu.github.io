@@ -1,8 +1,11 @@
 extends ../template/layout.pug
 
 append var
-  - cfg.title = 'Posts'
   - cfg.canonical = 'https://www.chuyangliu.com/post/'
+  - cfg.title = 'Posts'
+
+block meta
+  meta(name='description', content='Posts by Chuyang Liu.')
 
 block style
   link(rel='stylesheet', href='/style/default.css')
