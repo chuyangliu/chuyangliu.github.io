@@ -3,39 +3,39 @@
   >
   > <footer>The C Programming Language (2nd Edition), P31</footer>
 
-3. 
+1. 
   > Each local variable in a function comes into existence only when the function is called, and disappears when the function is exited. This is why such variables are usually known as *automatic* variables, following terminology in other languages.
   >
   > <footer>The C Programming Language (2nd Edition), P32</footer>
 
-4. 
+1. 
   > In certain circumstances, the `extern` declaration can be omitted. If the definition of the external variable occurs in the source file before its use in a particular function, then there is no need for an `extern` declaration in the function.
   >
   > If the program is in several source files, and a variable is defined in *file1* and used in *file2* and *file3*, then `extern` declarations are needed in *file2* and *file3* to connect the occurrences of the variable. The usual practice is to collect `extern` declarations of variables and functions in a separate file, historically called a *header*, that is included by `#include` at the front of each source file.
   >
   > <footer>The C Programming Language (2nd Edition), P33</footer>
 
-7. 
+1. 
   > The direction of truncation for `/` and the sign of the result for `%` are machine-dependent for negative operands, as is the action taken on overflow or underflow.
   >
   > <footer>The C Programming Language (2nd Edition), P40</footer>
 
-8. 
+1. 
   > The definition of C guarantees that any character in the machine's standard printing character set will never be negative, so these characters will always be positive quantities in expressions. But arbitrary bit patterns stored in character variables may appear to be negative on some machines, yet positive on others. For portability, specify `signed` or `unsigned` if non-character data is to be stored in `char` variables.
   >
   > <footer>The C Programming Language (2nd Edition), P42</footer>
 
-9. 
+1. 
   > Conversion rules are more complicated when `unsigned` operands are involved. The problem is that comparisons between signed and unsigned values are machine-dependent, because they depend on the sizes of the various integer types. For example, suppose that `int` is 16 bits and `long` is 32 bits. Then `-1L < 1U`, because `1U`, which is an `unsigned int`, is promoted to a `signed long`. But `-1L > 1UL` because `-1L` is promoted to `unsigned long` and thus appears to be a large positive number.
   >
   > <footer>The C Programming Language (2nd Edition), P43</footer>
 
-10. 
+1. 
   > Right shifting an `unsigned` quantity always fits the vacated bits with zero. Right shifting a signed quantity will fill with bit signs ("arithmetic shift") on some machines and with 0-bits ("logical shift") on others.
   >
   > <footer>The C Programming Language (2nd Edition), P47</footer>
 
-12. 
+1. 
   > For example, if `f` is a `float` and `n` an `int`, then the expression
   >
   > ```c
@@ -46,7 +46,7 @@
   >
   > <footer>The C Programming Language (2nd Edition), P49</footer>
 
-13. 
+1. 
   > C, like most languages, does not specify the order in which the operands of an operator are evaluated. (The exceptions are `&&`, `||`, `?:`, and `,`.) For example, in a statement like
   >
   > ```c
@@ -73,7 +73,7 @@
   >
   > <footer>The C Programming Language (2nd Edition), P50-51</footer>
 
-15. 
+1. 
   > Furthermore, if a function declaration does not include arguments, as in
   >
   > ```c
@@ -84,12 +84,12 @@
   >
   > <footer>The C Programming Language (2nd Edition), P66</footer>
 
-16. 
+1. 
   > By default, external variables and functions have the property that all references to them by the same name, even from functions compiled separately, are references to the same thing. (The standard calls this property *external linkage*.)
   >
   > <footer>The C Programming Language (2nd Edition), P67</footer>
 
-17. 
+1. 
   > A `register` declaration advises the compiler that the variable in question will be heavily used. The idea is that `register` variables are to be placed in machine registers, which may result in smaller and faster programs. But compilers are free to ignore the advice.
   >
   > The `register` declaration looks like
@@ -113,7 +113,7 @@
   >
   > <footer>The C Programming Language (2nd Edition), P76</footer>
 
-18. 
+1. 
   > Names may be undefined with `#undef`, usually to ensure that a routine is really a function, not a macro:
   >
   > ```c
@@ -124,7 +124,7 @@
   >
   > <footer>The C Programming Language (2nd Edition), P81</footer>
 
-19. 
+1. 
   > Formal parameters are not replaced within quoted strings. If, however, a parameter name is preceded by a `#` in the replacement text, the combination will be expanded into a quoted string with the parameter replaced by the actual argument. This can be combined with string concatenation to make, for example, a debugging print macro:
   >
   > ```c
@@ -153,7 +153,7 @@
   >
   > <footer>The C Programming Language (2nd Edition), P81</footer>
 
-20. 
+1. 
   > The preprocessor operator `##` provides a way to concatenate actual arguments during macro expansion. If a parameter in the replacement text is adjacent to a `##`, the parameter is replaced by the actual argument, the `##` and surrounding white space are removed, and the result is re-scanned. For example, the macro `paste` concatenates its two arguments:
   >
   > ```c
@@ -164,17 +164,17 @@
   >
   > <footer>The C Programming Language (2nd Edition), P81</footer>
 
-21. 
+1. 
   > There is one difference between an array name and a pointer that must be kept in mind. A pointer is a variable, so `pa=a` and `pa++` are legal. But an array name is not a variable; constructions like `a=pa` and `a++` are illegal.
   >
   > <footer>The C Programming Language (2nd Edition), P89</footer>
 
-22. 
+1. 
   > If one is sure that the elements exist, it is also possible to index backwards in an array; `p[-1]`, `p[-2]`, and so on are syntactically legal, and refer to the elements that immediately precede `p[0]`. Of course, it is illegal to refer to objects that are not within the array bounds.
   >
   > <footer>The C Programming Language (2nd Edition), P90</footer>
 
-23. 
+1. 
   > There is an important difference between these definitions:
   >
   > ```c
@@ -188,7 +188,7 @@
   >
   > <footer>The C Programming Language (2nd Edition), P93-94</footer>
 
-24. 
+1. 
   > **Bit-fields**
   >
   > A **bit-field**, or **field** for short, is a set of adjacent bits within a single implementation-defined storage unit that we will call a "word". For example, the symbol table `#define`s above could be replaced by the definition of three fields:
@@ -225,11 +225,11 @@
   >
   > Almost everything about fields is implementation-dependent. Whether a field may overlap a word boundary is implementation-defined. Fields need not be names; unnamed fields (a colon and width only) are used for padding. The special width 0 may be used to force alignment at the next word boundary.
   >
-  > Fields are assigned left to right on some machines and right to left on others. This means that although fields are useful for maintaining internally-defined data structures, the question of which end comes first has to be carefully considered when picking apart externally-defined data; programs that depend on such things are not portable. Fields may be declared only as ints; for portability, specify `signed` or `unsigned` explicitly. They are not arrays and they do not have addresses, so the & operator cannot be applied on them. 
+  > Fields are assigned left to right on some machines and right to left on others. This means that although fields are useful for maintaining internally-defined data structures, the question of which end comes first has to be carefully considered when picking apart externally-defined data; programs that depend on such things are not portable. Fields may be declared only as ints; for portability, specify `signed` or `unsigned` explicitly. They are not arrays and they do not have addresses, so the & operator cannot be applied on them.
   >
   > <footer>The C Programming Language (2nd Edition), P133-134</footer>
 
-25. 
+1. 
   > Between the `%` and the conversion character there may be, in order:
   >
   > * A minus sign, which specifies left adjustment of the converted argument.
@@ -241,7 +241,7 @@
   > <br>
   > <footer>The C Programming Language (2nd Edition), P137</footer>
 
-26. 
+1. 
   > A width or precision may be specified as `*`, in which case the value is computed by converting the next argument (which must be an `int`). For example, to print at most `max` characters from a string s,
   >
   > ```c
@@ -250,7 +250,7 @@
   >
   > <footer>The C Programming Language (2nd Edition), P138</footer>
 
-27. 
+1. 
   > The function `sprintf` does the same conversions as `printf` does, but stores the output in a string:
   >
   > ```c
@@ -269,7 +269,7 @@
   >
   > <footer>The C Programming Language (2nd Edition), P138, 140</footer>
 
-28. 
+1. 
   > **Variable-length Argument Lists**
   >
   > The proper declaration for `printf` is
@@ -319,12 +319,12 @@
   >
   > <footer>The C Programming Language (2nd Edition), P138-139</footer>
 
-29. 
+1. 
   > When a C program is started, the operating system environment is responsible for opening three files and providing pointers for them. These files are the standard input, the standard output, and the standard error; the corresponding file pointers are called `stdin`, `stdout`, and `stderr`, and are declared in `<stdio.h>`. Normally `stdin` is connected to the keyboard and `stdout` and `stderr` are connected to the screen.
   >
   > <footer>The C Programming Language (2nd Edition), P143-144</footer>
 
-30. 
+1. 
   > Output written on `stderr` normally appears on the screen even if the standard output is redirected.
   >
   > Let us revise `cat` to write its error messages on the standard error.

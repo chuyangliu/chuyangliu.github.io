@@ -5,36 +5,36 @@
   > 
   > <footer>C++ Primer (5th Edition), P60</footer>
 
-2. 
+1. 
   > Unlike the other integer types, there are three **distinct** basic character types: `char`, `signed char` and `unsigned char`. In particular, `char` is not the same type as `signed char`. Although there are three character types, there are only two representations: signed and unsigned. The (plain) `char` type uses one of these representations. Which of the other two character representations is equivalent to `char` depends on the compiler.
   > 
   > <footer>C++ Primer (5th Edition), P62</footer>
 
-3. 
+1. 
   > Use `double` for floating-point computations; `float` usually does not have enough precision, and the cost of double-precision calculations versus single-precision is negligible. In fact, on some machines, double-precision operations are faster than single. The precision offered by `long double` usually is unnecessary and often entails considerable run-time cost.
   > 
   > See also [float vs double - C++ Forum](http://www.cplusplus.com/forum/beginner/214007/).
   >
   > <footer>C++ Primer (5th Edition), P63</footer>
 
-4. 
+1. 
   > **Caution: Don’t Mix Signed and Unsigned Types.**
   > 
   > <footer>C++ Primer (5th Edition), P66</footer>
 
-5. 
+1. 
   > **Character and String Literals**
   >
   > ![](/media/cpp_primer_5_tbl_2_2.png)
   > 
   > <footer>C++ Primer (5th Edition), P68</footer>
 
-6. 
+1. 
   > We can also write a **generalized escape sequence**, which is `\x` followed by one or more *hexadecimal* digits or a `\` followed by one, two, or three *octal* digits.
   > 
   > <footer>C++ Primer (5th Edition), P69</footer>
 
-7. 
+1. 
   > A **declaration** makes a name known to the program. A file that wants to use a name defined elsewhere includes a declaration for that name. A **definition** creates the associated entity.
   >
   > We can provide an initializer on a variable defined as `extern`, but doing so overrides the `extern`. An `extern` that has an initializer is a definition.
@@ -47,12 +47,12 @@
   >
   > <footer>C++ Primer (5th Edition), P76</footer>
 
-8. 
+1. 
   > Because references are not objects, we may **not** define a reference to a reference.
   > 
   > <footer>C++ Primer (5th Edition), P83</footer>
 
-9. 
+1. 
   > **References to Pointers**
   >
   > ```c++
@@ -67,7 +67,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P92</footer>
 
-10. 
+1. 
   > By default, `const` objects are **local** to a file.
   >
   > To define a single instance of a const variable, we use the keyword `extern` on **both** its definition and declaration(s):
@@ -81,14 +81,14 @@
   > 
   > <footer>C++ Primer (5th Edition), P94</footer>
 
-11. 
+1. 
   > When we copy an object, top-level `const` **are** ignored.
   >
   > On the other hand, low-level `const` is **never** ignored.
   > 
   > <footer>C++ Primer (5th Edition), P100</footer>
 
-12. 
+1. 
   > **`constexpr`**
   >
   > A **constant expression** is an expression whose value cannot change and that can be evaluated at **compile** time. A literal is a constant expression. A const object that is initialized from a constant expression is also a constant expression.
@@ -123,7 +123,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P101-103</footer>
 
-13. 
+1. 
   > **`typedef`**
   >
   > Declarations that use type aliases that represent compound types and const can yield surprising results.
@@ -136,7 +136,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P104</footer>
 
-14. 
+1. 
   > `auto` ordinarily **ignores** top-level `const`s.
   > 
   > When we ask for a reference to an `auto`-deduced type, top-level `const`s in the initializer are **not** ignored.
@@ -157,7 +157,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P106</footer>
 
-15. 
+1. 
   > **`decltype`**
   >
   > The way `decltype` handles top-level `const` and references differs subtly from the way auto does. When the expression to which we apply `decltype` is a variable, `decltype` returns the type of that variable, **including** top-level `const` and references:
@@ -173,17 +173,17 @@
   > 
   > <footer>C++ Primer (5th Edition), P107-108</footer>
 
-16. 
+1. 
   > **Caution: Subscripts are Unchecked.**
   > 
   > <footer>C++ Primer (5th Edition), P136</footer>
 
-17. 
+1. 
   > Some compilers may require the old-style declarations for a `vector` of `vector`s, for example, `vector<vector<int> >`.
   > 
   > <footer>C++ Primer (5th Edition), P139</footer>
 
-18. 
+1. 
   > If we use braces and there is no way to use the initializers to list initialize the object, then those values will be used to **construct** the object.
   > 
   > ```c++
@@ -195,12 +195,12 @@
   > 
   > <footer>C++ Primer (5th Edition), P142</footer>
 
-19. 
+1. 
   > We can also subtract two iterators so long as they refer to elements in, or one off the end of, the same `vector` or `string`. The result is the distance between the iterators. By distance we mean the amount by which we’d have to change one iterator to get the other. The result type is a signed integral type named `difference_type`. Both `vector` and `string` define `difference_type`. This type is signed, because subtraction might have a negative result.
   > 
   > <footer>C++ Primer (5th Edition), P157</footer>
 
-20. 
+1. 
   > **`begin()`/`end()`**
   >
   > ```c++
@@ -213,12 +213,12 @@
   > 
   > <footer>C++ Primer (5th Edition), P165</footer>
 
-21. 
+1. 
   > The result of subtracting two pointers is a library type named `ptrdiff_t`. Like `size_t`, the `ptrdiff_t` type is a machine-specific type and is defined in the `cstddef` header.
   > 
   > <footer>C++ Primer (5th Edition), P167</footer>
 
-22. 
+1. 
   > Unlike subscripts for `vector` and `string`, the index of the built-in subscript operator is **not** an `unsigned` type.
   > 
   > ```c++
@@ -232,7 +232,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P169</footer>
 
-23. 
+1. 
   > To use a multidimensional array in a range `for`, the loop control variable for all but the innermost array **must** be references.
   > 
   > As an example, consider the following loop:
@@ -254,17 +254,17 @@
   > 
   > <footer>C++ Primer (5th Edition), P177</footer>
 
-24. 
+1. 
   > **value initialization:** Initialization in which built-in types are initialized to zero and class types are initialized by the class’s default constructor. Objects of a class type can be value initialized only if the class has a default constructor. Used to initialize a container’s elements when a size, but not an element initializer, is specified. Elements are initialized as a copy of this compilergenerated value.
   > 
   > <footer>C++ Primer (5th Edition), P182</footer>
 
-25. 
+1. 
   > Roughly speaking, when we use an object as an **rvalue**, we use the object’s value (its **contents**). When we use an object as an **lvalue**, we use the object’s identity (its **location** in memory).
   > 
   > <footer>C++ Primer (5th Edition), P185</footer>
 
-26. 
+1. 
   > Order of operand evaluation is **independent** of precedence and associativity. In an expression such as `f() + g() * h() + j()`:
   >
   > * Precedence guarantees that the results of `g()` and `h()` are multiplied.
@@ -300,7 +300,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P188, P202</footer>
 
-27. 
+1. 
   > The *new standard* requires the quotient to be rounded **toward zero** (i.e., truncated).
   > 
   > Except for the obscure case where `-m` overflows, `(-m)/n` and `m/(-n)` are always equal to `-(m/n)`, `m%(-n)` is equal to `m%n` and `(-m)%n` is equal to `-(m%n)`. More concretely:
@@ -314,12 +314,12 @@
   > 
   > <footer>C++ Primer (5th Edition), P192</footer>
 
-28. 
+1. 
   > Because there are no guarantees for how the sign bit is handled, we strongly recommend using `unsigned` types with the **bitwise operators**.
   > 
   > <footer>C++ Primer (5th Edition), P206</footer>
 
-29. 
+1. 
   > The result of `sizeof` is a constant expression of type `size_t`. The operator takes one of two forms:
   > 
   > ```c++
@@ -343,12 +343,12 @@
   > 
   > <footer>C++ Primer (5th Edition), P211</footer>
 
-30. 
+1. 
   > The result of a comma expression is the value of its **right-hand** expression.
   > 
   > <footer>C++ Primer (5th Edition), P212</footer>
 
-31. 
+1. 
   > A `const_cast` changes **only** a low-level `const` in its operand:
   > 
   > ```c++
@@ -358,7 +358,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P219</footer>
 
-32. 
+1. 
   > An old-style cast has the same behavior as a `const_cast`, a `static_cast`, or a `reinterpret_cast`. When we use an old-style cast where a `static_cast` or a `const_cast` would be legal, the old-style cast does the same conversion as the respective named cast. If neither cast is legal, then an oldstyle cast performs a `reinterpret_cast`. For example:
   > 
   > ```c++
@@ -369,7 +369,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P221</footer>
 
-33. 
+1. 
   > **Dangling `else`**
   >
   > How do we know to which `if` a given `else` belongs?
@@ -378,12 +378,12 @@
   > 
   > <footer>C++ Primer (5th Edition), P234</footer>
 
-34. 
+1. 
   > `case` labels must be **integral** constant expressions.
   > 
   > <footer>C++ Primer (5th Edition), P236</footer>
 
-35. 
+1. 
   > It is **illegal** to jump from a place where a variable with an initializer is out of scope to a place where that variable is in scope:
   > 
   > ```c++
@@ -403,7 +403,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P239</footer>
 
-36. 
+1. 
   > A range `for` is defined in terms of the equivalent traditional for:
   > 
   > ```c++
@@ -417,7 +417,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P246</footer>
 
-37. 
+1. 
   > Because the condition is not evaluated until after the statement or block is executed, the `do while` loop **does not** allow variable definitions inside the condition:
   > 
   > ```c++
@@ -431,17 +431,17 @@
   > 
   > <footer>C++ Primer (5th Edition), P247</footer>
 
-38. 
+1. 
   > **Arguments** are the initializers for a function’s **parameters**.
   > 
   > <footer>C++ Primer (5th Edition), P262</footer>
 
-39. 
+1. 
   > Objects that exist only while a block is executing are known as **automatic objects**.
   > 
   > <footer>C++ Primer (5th Edition), P264</footer>
 
-40. 
+1. 
   > **Exercise 6.24:** Explain the behavior of the following function. If there are problems in the code, explain what they are and how you might fix them. [[Answer]](https://github.com/Mooophy/Cpp-Primer/tree/master/ch06#exercise-624)
   > 
   > ```c++
@@ -454,14 +454,14 @@
   > 
   > <footer>C++ Primer (5th Edition), P280</footer>
 
-41. 
+1. 
   > **Ellipsis parameters** are in C++ to allow programs to interface to C code that uses a C library facility named `varargs`. Generally an ellipsis parameter should not be used C++ Primer, Fifth Edition for other purposes. Your C compiler documentation will describe how to use `varargs`.
   > 
   > Ellipsis parameters should be usedi **only** for types that are common to both C and C++. In particular, objects of most class types are not copied properly when passed to an ellipsis parameter.
   > 
   > <footer>C++ Primer (5th Edition), P284</footer>
 
-42. 
+1. 
   > Never return a reference or pointer to a local object:
   > 
   > ```c++
@@ -479,7 +479,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P287</footer>
 
-43. 
+1. 
   > Declaring a function that returns a pointer to an array:
   > 
   > ```c++
@@ -495,26 +495,26 @@
   > 
   > <footer>C++ Primer (5th Edition), P291</footer>
 
-44. 
+1. 
   > The `inline` specification is only a request to the compiler. The compiler may choose to ignore this request.
   > 
   > <footer>C++ Primer (5th Edition), P303</footer>
 
-45. 
+1. 
   > **`constexpr` function**
   > 
   > The compiler will replace a call to a `constexpr` function with its resulting value. In order to be able to expand the function immediately, `constexpr` functions are implicitly `inline`.
   > 
   > <footer>C++ Primer (5th Edition), P304</footer>
 
-46. 
+1. 
   > **Put `inline` and `constexpr` functions in header files**
   > 
   > Unlike other functions, `inline` and `constexpr` functions may be defined multiple times in the program. After all, the compiler **needs the definition**, not just the declaration, in order to expand the code. However, all of the definitions of a given `inline` or `constexpr` must match exactly. As a result, `inline` and `constexpr` functions normally are defined in headers.
   > 
   > <footer>C++ Primer (5th Edition), P305</footer>
 
-47. 
+1. 
   > **Preprocessor Macros**
   >
   > `__func__` string literal containing the name of the current function.
@@ -529,7 +529,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P307</footer>
 
-48. 
+1. 
   > **Pointers to Functions**
   > 
   > ```c++
@@ -557,7 +557,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P313-314</footer>
 
-49. 
+1. 
   > **Functions returning a pointer to function**
   >
   > ```c++
@@ -572,12 +572,12 @@
   > 
   > <footer>C++ Primer (5th Edition), P316</footer>
 
-50. 
+1. 
   > Functions defined in the class are implicitly `inline`.
   > 
   > <footer>C++ Primer (5th Edition), P324</footer>
 
-51. 
+1. 
   > The `this` parameter is defined for us implicitly. Indeed, it is illegal for us to define a parameter or variable named `this`. Inside the body of a member function, we can use `this`. It would be legal, although unnecessary, to define `isbn` as
   > 
   > ```c++
@@ -588,7 +588,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P326</footer>
 
-52. 
+1. 
   > **`const` member functions**
   > 
   > By default, the type of `this` is a `const` pointer to the non`const` version of the class type. For example, by default, the type of `this` in a `Sales_data` member function is `Sales_data *const`. Although `this` is implicit, it follows the normal initialization rules, which means that (by default) we cannot bind `this` to a `const` object. This fact, in turn, means that we cannot call an ordinary member function on a `const` object.
@@ -597,12 +597,12 @@
   > 
   > <footer>C++ Primer (5th Edition), P326</footer>
 
-53. 
+1. 
   > Unlike other member functions, constructors may not be declared as `const`. When we create a `const` object of a class type, the object does not assume its “constness” until after the constructor completes the object’s initialization. Thus, constructors can write to `const` objects during their construction.
   > 
   > <footer>C++ Primer (5th Edition), P331</footer>
 
-54. 
+1. 
   > The compiler-generated constructor is known as the **synthesized default constructor**. For most classes, this synthesized constructor initializes each data member of the class as follows:
   > 
   > * If there is an in-class initializer, use it to initialize the member.
@@ -613,7 +613,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P332</footer>
 
-55. 
+1. 
   > **`= default`**
   >
   > ```c++
@@ -626,12 +626,12 @@
   > 
   > <footer>C++ Primer (5th Edition), P334</footer>
 
-56. 
+1. 
   > A `const` member function that returns `*this` as a reference should have a return type that is a reference to `const`.
   > 
   > <footer>C++ Primer (5th Edition), P347</footer>
 
-57. 
+1. 
   > Just as we can declare a function apart from its definition, we can also declare a class without defining it:
   > 
   > ```c++
@@ -654,7 +654,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P350</footer>
 
-58. 
+1. 
   > **Declarations for Friends**
   > 
   > A friend declaration only specifies access. It is not a general declaration of the function. If we want users of the class to be able to call a friend function, then we must also declare the function separately from the friend declaration.
@@ -688,7 +688,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P353</footer>
 
-59. 
+1. 
   > **Scope and Members Defined outside the Class**
   > 
   > ```c++
@@ -705,12 +705,12 @@
   > 
   > <footer>C++ Primer (5th Edition), P354</footer>
 
-60. 
+1. 
   > Member function definitions are processed **after** the compiler processes all of the declarations in the class.
   > 
   > <footer>C++ Primer (5th Edition), P356</footer>
 
-61. 
+1. 
   > **Order of Member Initialization**
   > 
   > Members are initialized in the order in which they appear in the class definition: The first member is initialized first, then the next, and so on. The order in which initializers appear in the constructor initializer list does **not** change the order of initialization.
@@ -733,7 +733,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P362</footer>
 
-62. 
+1. 
   > The *new standard* extends the use of constructor initializers to let us define socalled **delegating constructors**. A delegating constructor uses another constructor from its own class to perform its initialization. It is said to “delegate” some (or all) of its work to this other constructor.
   > 
   > ```c++
@@ -752,7 +752,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P365</footer>
 
-63. 
+1. 
   > Every constructor that can be called with a single argument defines an implicit conversion to a class type. Such constructors are sometimes referred to as **converting constructors**.
   > 
   > **Only One Class-Type Conversion Is Allowed**
@@ -776,7 +776,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P365</footer>
 
-64. 
+1. 
   > An **aggregate classes** gives users direct access to its members and has special initialization syntax. A class is an aggregate if
   > 
   > * All of its data members are `public`
@@ -805,7 +805,7 @@
   > 
   > <footer>C++ Primer (5th Edition), P372</footer>
 
-65. 
+1. 
   > **Literal Classes**
   > 
   > We noted that the parameters and return type of a `constexpr` function must be literal types. In addition to the arithmetic types, references, and pointers, certain classes are also literal types. Unlike other classes, classes that are literal types may have function members that are `constexpr`. Such members must meet all the requirements of a `constexpr` function. These member functions are **implicitly** `const`.
@@ -842,7 +842,7 @@
   >
   > <footer>C++ Primer (5th Edition), P373-374</footer>
 
-66. 
+1. 
   > Even if a `const static` data member is initialized in the class body, that member ordinarily should be defined outside the class definition.
   >
   > ```c++
@@ -861,7 +861,7 @@
   >
   > <footer>C++ Primer (5th Edition), P378</footer>
 
-67. 
+1. 
   > **Flushing the Output Buffer**
   >
   > ```c++
@@ -884,7 +884,7 @@
   >
   > <footer>C++ Primer (5th Edition), P390</footer>
 
-68. 
+1. 
   > **Tying Input and Output Streams Together**
   >
   > When an input stream is tied to an output stream, any attempt to read the input stream will first flush the buffer associated with the output stream. The library ties `cout` to `cin`, so the statement
@@ -908,7 +908,7 @@
   >
   > <footer>C++ Primer (5th Edition), P390-391</footer>
 
-69. 
+1. 
   > **Deciding Which Sequential Container to Use**
   >
   > There are a few rules of thumb that apply to selecting which container to use:
@@ -920,13 +920,13 @@
   > * If the program needs to insert or delete elements at the front and the back, but not in the middle, use a `deque`.
   > * If the program needs to insert elements in the middle of the container only while reading input, and subsequently needs random access to the elements:
   >   * First, decide whether you actually need to add elements in the middle of a container. It is often easier to append to a `vector` and then call the library sort function to reorder the container when you’re done with input.
-  >   * If you must insert into the middle, consider using a `list` for the input phase. Once the input is complete, copy the `list` into a `vector`. 
+  >   * If you must insert into the middle, consider using a `list` for the input phase. Once the input is complete, copy the `list` into a `vector`.
   >
   > <br>
   >
   > <footer>C++ Primer (5th Edition), P404</footer>
 
-70. 
+1. 
   > **`begin` and `end` Members**
   >
   > ```c++
@@ -941,7 +941,7 @@
   >
   > <footer>C++ Primer (5th Edition), P412</footer>
 
-71. 
+1. 
   > **Library `array`s Have Fixed Size**
   >
   > Just as the size of a built-in array is part of its type, the size of a library `array` is part of its type. When we define an `array`, in addition to specifying the element type, we also specify the container size:
@@ -964,7 +964,7 @@
   >
   > <footer>C++ Primer (5th Edition), P415</footer>
 
-72. 
+1. 
   > **Using `swap`**
   >
   > The swap operation exchanges the contents of two containers of the same type. After the call to swap, the elements in the two containers are interchanged:
@@ -983,12 +983,12 @@
   >
   > <footer>C++ Primer (5th Edition), P418</footer>
 
-73. 
+1. 
   > Under the *new standard*, the versions of `insert` that take a count or a range return an iterator to the first element that was inserted. (In prior versions of the library, these operations returned `void`.) If the range is empty, no elements are inserted, and the operation returns its first parameter.
   >
   > <footer>C++ Primer (5th Edition), P424</footer>
 
-74. 
+1. 
   > **Subscripting and Safe Random Access**
   >
   > If we want to ensure that our index is valid, we can use the `at` member instead. The `at` member acts like the subscript operator, but if the index is invalid, `at` throws an `out_of_range` exception:
@@ -1001,7 +1001,7 @@
   >
   > <footer>C++ Primer (5th Edition), P428</footer>
 
-75. 
+1. 
   > **Exercise 9.32**
   >
   > In the program below would it be legal to write the call to insert as follows? If not, why not?
@@ -1014,14 +1014,14 @@
   >
   > <footer>C++ Primer (5th Edition), P437</footer>
 
-76. 
+1. 
   > **`shrink_to_fit`**
   >
   > Under the *new library*, we can call `shrink_to_fit` to ask a `deque`, `vector`, or `string` to return unneeded memory. This function indicates that we no longer need any excess capacity. However, the implementation is free to ignore this request. There is **no** guarantee that a call to `shrink_to_fit` will return memory.
   >
   > <footer>C++ Primer (5th Edition), P439</footer>
 
-77. 
+1. 
   > **Exercise 9.42**
   >
   > Given that you want to read a character at a time into a `string`, and you know that you need to read at least 100 characters, how might you improve the performance of your program?
@@ -1030,7 +1030,7 @@
   >
   > <footer>C++ Primer (5th Edition), P443</footer>
 
-78. 
+1. 
   > **Conversions between `string`s and Numbers**
   >
   > The *new standard* introduced several functions that convert between numeric data and library `string`s:
@@ -1045,7 +1045,7 @@
   >
   > <footer>C++ Primer (5th Edition), P450-451</footer>
 
-79. 
+1. 
   > An **adaptor** is a general concept in the library. There are container, iterator, and function adaptors. Essentially, an adaptor is a mechanism for making one thing act like another.
   >
   > *Container Adaptors*: `stack`, `queue`, and `priority_queue`.
@@ -1054,7 +1054,7 @@
   >
   > <footer>C++ Primer (5th Edition), P452</footer>
 
-80. 
+1. 
   > **Lambda Expressions**
   >
   > **Note:** The capture list is used for local non`static` variables only; lambdas can use local `static`s and variables declared outside the function directly.
@@ -1067,7 +1067,7 @@
   >
   > <footer>C++ Primer (5th Edition), P477-478</footer>
 
-81. 
+1. 
   > **Mutable Lambdas**
   >
   > By default, a lambda may not change the value of a variable that it copies by value. If we want to be able to change the value of a captured variable, we must follow the parameter list with the keyword `mutable`. Lambdas that are mutable may not omit the parameter list:
@@ -1099,7 +1099,7 @@
   >
   > <footer>C++ Primer (5th Edition), P482</footer>
 
-82. 
+1. 
   > **Specifying the Lambda Return Type**
   >
   > By default, if a lambda body contains any statements other than a `return`, that lambda is assumed to return `void`.
@@ -1119,7 +1119,7 @@
   >
   > <footer>C++ Primer (5th Edition), P482-483</footer>
 
-83. 
+1. 
   > **The Library `bind` Function**
   >
   > The general form of a call to bind is:
@@ -1164,7 +1164,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P484-488</footer>
 
-84. 
+1. 
   > **Insert Iterators**
   >
   > * `back_inserter` creates an iterator that uses `push_back`.
@@ -1187,7 +1187,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P489</footer>
 
-85. 
+1. 
   > **`iostream` Iterators**
   >
   > ![](/media/cpp_primer_5_tbl_10_3.png)
@@ -1211,7 +1211,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P491-494</footer>
 
-86. 
+1. 
   > **`reverse_iterator`’s `base` member**
   >
   > ```c++
@@ -1227,14 +1227,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P497</footer>
 
-87. 
+1. 
   > **Iterator Categories**
   >
   > ![](/media/cpp_primer_5_tbl_10_5.png)
   >
   > <footer>C++ Primer (5th Edition), P499</footer>
 
-88. 
+1. 
   > **Container-Specific Algorithms**
   >
   > ![](/media/cpp_primer_5_tbl_10_6.png)
@@ -1243,33 +1243,33 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P505</footer>
  
-89. 
+1. 
   > **The `splice` Members**
   >
   > ![](/media/cpp_primer_5_tbl_10_7.png)
   > 
   > <footer>C++ Primer (5th Edition), P506</footer>
 
-90. 
+1. 
   > **Key Types for Ordered Containers**
   >
   > Just as we can provide our own comparison operation to an algorithm, we can also supply our own operation to use in place of the `<` operator on keys. The specified operation must define a **strict weak ordering** over the key type.
   >
   > <footer>C++ Primer (5th Edition), P515</footer>
  
-91. 
+1. 
   > **Iterators for `set`s Are `const`**
   >
   > Although the `set` types define both the `iterator` and `const_iterator` types, both types of iterators give us read-only access to the elements in the `set`. Just as we cannot change the key part of a `map` element, the keys in a `set` are also `const`. We can use a `set` iterator to read, but not write, an element’s value.
   >
   > <footer>C++ Primer (5th Edition), P520</footer>
 
-92. 
+1. 
   > Subscripting a `map` behaves quite differently from subscripting an array or `vector`: Using a key that is not already present **adds** an element with that key to the `map`.
   >
   > <footer>C++ Primer (5th Edition), P528</footer>
 
-93. 
+1. 
   > We can also value initialize a dynamically allocated object by following the type name with a pair of empty parentheses:
   >
   > ```c++
@@ -1281,7 +1281,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P553</footer>
 
-94. 
+1. 
   > When we provide an initializer inside parentheses, we can use `auto` to deduce the type of the object we want to allocate from that initializer. However, because the compiler uses the initializer’s type to deduce the type to allocate, we can use `auto` only with a single initializer inside parentheses:
   >
   > ```c++
@@ -1292,7 +1292,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P553</footer>
 
-95. 
+1. 
   > After the `delete`, the pointer becomes what is referred to as a **dangling pointer**. A dangling pointer is one that refers to memory that once held an object but no longer does so.
   >
   > <footer>C++ Primer (5th Edition), P557</footer>
@@ -1314,12 +1314,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P575-576</footer>
 
-98. 
+1. 
   > Elements in an array are destroyed in **reverse** order. That is, the last element is destroyed first, then the second to last, and so on.
   >
   > <footer>C++ Primer (5th Edition), P576</footer>
 
-99. 
+1. 
   > **Smart Pointers and Dynamic Arrays**
   >
   > The library provides a version of `unique_ptr` that can manage arrays allocated by `new`.
@@ -1336,19 +1336,19 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P577-578</footer>
 
-100. 
+1. 
   > **free store** Memory pool available to a program to hold dynamically allocated objects.
   >
   > **heap** Synonym for free store.
   >
   > <footer>C++ Primer (5th Edition), P590</footer>
 
-101. 
+1. 
   > Although we cannot directly copy an array, the synthesized **copy constructor** and **copy-assignment operator** copies members of array type by copying each element.
   >
   > <footer>C++ Primer (5th Edition), P594-595, 599</footer>
 
-102. 
+1. 
   > **Copy initialization** happens not only when we define variables using an `=`, but also when we
   >
   > * Pass an object as an argument to a parameter of nonreference type
@@ -1358,17 +1358,17 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > <br>
   > <footer>C++ Primer (5th Edition), P594-595</footer>
 
-103. 
+1. 
   > The fact that the copy constructor is used to initialize nonreference parameters of class type explains why the copy constructor’s own parameter must be a reference. If that parameter were not a reference, then the call would never succeed—to call the copy constructor, we’d need to use the copy constructor to copy the argument, but to copy the argument, we’d need to call the copy constructor, and so on indefinitely.
   >
   > <footer>C++ Primer (5th Edition), P596</footer>
 
-104. 
+1. 
   > In a destructor, the function body is executed first and then the members are destroyed. Members are destroyed in *reverse* order from the order in which they were initialized.
   >
   > <footer>C++ Primer (5th Edition), P600</footer>
 
-105. 
+1. 
   > **The Rule of Three/Five**
   >
   > * Classes that need destructors need copy and assignment
@@ -1381,7 +1381,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P603-604, 645</footer>
 
-106. 
+1. 
   > **Using `= default`**
   >
   > We can explicitly ask the compiler to generate the synthesized versions of the copy-control members by defining them as `= default`:
@@ -1403,7 +1403,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P606</footer>
 
-107. 
+1. 
   > **Defining a Function as Deleted**
   >
   > Under the *new standard*, we can prevent copies by defining the copy constructor and copy-assignment operator as **deleted functions**.
@@ -1426,14 +1426,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P607</footer>
 
-108. 
+1. 
   > **`allocator` Algorithms**
   >
   > ![](/media/cpp_primer_5_tbl_12_8.png)
   >
   > <footer>C++ Primer (5th Edition), P582</footer>
 
-109. 
+1. 
   > **copy and swap**
   >
   > ```c++
@@ -1449,22 +1449,22 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P619-620</footer>
 
-110. 
+1. 
   > The compiler will synthesize a move constructor or a move-assignment operator *only* if the class doesn’t define any of its own copy-control members and if every non`static` data member of the class can be moved.
   >
   > <footer>C++ Primer (5th Edition), P641</footer>
 
-111. 
+1. 
   > Unlike the copy operations, a move operation is never implicitly defined as a deleted function. However, if we explicitly ask the compiler to generate a move operation by using `= default`, and the compiler is unable to move all the members, then the move operation will be defined as deleted.
   >
   > <footer>C++ Primer (5th Edition), P642</footer>
 
-112. 
+1. 
   > Classes that define a move constructor or move-assignment operator must also define their own copy operations. Otherwise, those members are deleted by default.
   >
   > <footer>C++ Primer (5th Edition), P643</footer>
 
-113. 
+1. 
   > **Copy-and-Swap Assignment Operators and Move**
   >
   > The version of our `HasPtr` class that defined a copy-and-swap assignment operator is a good illustration of the interaction between function matching and move operations. If we add a move constructor to this class, it will effectively get a move assignment operator as well:
@@ -1484,7 +1484,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P644-645</footer>
 
-114. 
+1. 
   > The *new library* defines a **move iterator** adaptor. A move iterator adapts its given iterator by changing the behavior of the iterator’s dereference operator. Ordinarily, an iterator dereference operator returns an lvalue reference to the element. Unlike other iterators, the dereference operator of a move iterator yields an rvalue reference.
   >
   > We transform an ordinary iterator to a move iterator by calling the library `make_move_iterator` function. This function takes an iterator and returns a move iterator.
@@ -1510,12 +1510,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P647-648</footer>
 
-115. 
+1. 
   > Outside of class implementation code such as move constructors or move-assignment operators, use `std::move` only when you are certain that you need to do a move and that the move is guaranteed to be safe.
   >
   > <footer>C++ Primer (5th Edition), P648</footer>
 
-116. 
+1. 
   > We indicate the lvalue/rvalue property of `this` in the same way that we define `const` member functions; we place a **reference qualifier** after the parameter list:
   >
   > ```c++
@@ -1535,7 +1535,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P651</footer>
 
-117. 
+1. 
   > When we define `const` memeber functions, we can define two versions that differ only in that one is `const` qualified and the other is not. There is no similar default for reference qualified functions. When we define two or more members that have the same name and the same parameter list, we must provide a reference qualifier on all or none of those functions:
   >
   > ```c++
@@ -1553,32 +1553,32 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P651-652</footer>
 
-118. 
+1. 
   > Ordinarily, the comma, address-of, logical AND, and logical OR operators should *not* be overloaded.
   >
   > <footer>C++ Primer (5th Edition), P660</footer>
 
-119. 
+1. 
   > The assignment (`=`), subscript (`[]`), call (`()`), and member access arrow (`->`) operators must be defined as members.
   >
   > <footer>C++ Primer (5th Edition), P661</footer>
 
-120. 
+1. 
   > Input operators *should* decide what, if anything, to do about error recovery.
   >
   > <footer>C++ Primer (5th Edition), P667</footer>
 
-121. 
+1. 
   > Classes that define both an arithmetic operator and the related compound assignment ordinarily ought to implement the arithmetic operator by using the compound assignment.
   >
   > <footer>C++ Primer (5th Edition), P668</footer>
 
-122. 
+1. 
   > In addition to the copy- and move-assignment operators that assign one object of the class type to another object of the same type, a class can define additional assignment operators that allow other types as the right-hand operand.
   >
   > <footer>C++ Primer (5th Edition), P671</footer>
 
-123. 
+1. 
   > To solve this problem, the postfix versions take an extra (unused) parameter of type `int`. When we use a postfix operator, the compiler supplies 0 as the argument for this parameter. Although the postfix function can use this extra parameter, it usually should not. That parameter is not needed for the work normally performed by a postfix operator. Its sole purpose is to distinguish a postfix function from the prefix version.
   >
   > ```c++
@@ -1593,7 +1593,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P676</footer>
 
-124. 
+1. 
   > **Member Access Operators**
   >
   > ```c++
@@ -1630,12 +1630,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > <br>
   > <footer>C++ Primer (5th Edition), P679</footer>
 
-125. 
+1. 
   > Objects of classes that define the call operator are referred to as **function objects**. Such objects "act like functions" because we can call them.
   >
   > <footer>C++ Primer (5th Edition), P680-681</footer>
 
-126. 
+1. 
   > One important aspect of these library function objects is that the library guarantees that they will work for pointers. Recall that comparing two unrelated pointers is undefined. However, we might want to `sort` a `vector` of pointers based on their addresses in memory. Although it would be undefined for us to do so directly, we can do so through one of the library function objects:
   >
   > ```c++
@@ -1651,7 +1651,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P685</footer>
 
-127. 
+1. 
   > **Defining a Class with a Conversion Operator**
   >
   > ```c++
@@ -1684,7 +1684,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P692-693</footer>
 
-129. 
+1. 
   > In a call to an overloaded function, the rank of an additional standard conversion (if any) matters only if the viable functions require the same user-defined conversion. If different user-defined conversions are needed, then the call is ambiguous.
   >
   > <footer>C++ Primer (5th Edition), P699</footer>
@@ -1704,12 +1704,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > <br>
   > <footer>C++ Primer (5th Edition), P311</footer>
 
-131. 
+1. 
   > If a base class defines a `static` member, there is only one such member defined for the entire hierarchy.
   >
   > <footer>C++ Primer (5th Edition), P712</footer>
 
-132. 
+1. 
   > A derived class is declared like any other class. The declaration contains the class name but does not include its derivation list:
   >
   > ```c++
@@ -1733,12 +1733,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P713-714</footer>
 
-134. 
+1. 
   > When we use types related by inheritance, we often need to distinguish between the **static type** of a variable or other expression and the **dynamic type** of the object that expression represents. The static type of an expression is always known at compile time—it is the type with which a variable is declared or that an expression yields. The dynamic type is the type of the object in memory that the variable or expression represents. The dynamic type may not be known until run time.
   >
   > <footer>C++ Primer (5th Edition), P715</footer>
 
-135. 
+1. 
   > Under the *new standard* we can specify `override` on a virtual function in a derived class. Doing so makes our intention clear and (more importantly) enlists the compiler in finding such problems for us. The compiler will reject a program if a function marked `override` does not override an existing virtual function:
   >
   > ```c++
@@ -1772,14 +1772,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P721</footer>
 
-136. 
+1. 
   > Like any other function, a virtual function can have default arguments. If a call uses a default argument, the value that is used is the one defined by the *static* type through which the function is called.
   >
   > **Best Practices:** Virtual functions that have default arguments should use the same argument values in the base and derived classes.
   >
   > <footer>C++ Primer (5th Edition), P722</footer>
 
-137. 
+1. 
   > **Circumventing the Virtual Mechanism**
   >
   > In some cases, we want to prevent dynamic binding of a call to a virtual function; we want to force the call to use a particular version of that virtual. We can use the scope operator to do so. For example, this code:
@@ -1795,8 +1795,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P722-723</footer>
 
-
-138. 
+1. 
   > A derived class member or friend may access the `protected` members of the base class *only* through a derived object. The derived class has no special access to the `protected` members of base-class objects.
   > 
   > ```c++
@@ -1817,7 +1816,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P727</footer>
 
-139. 
+1. 
   > Just as friendship is not transitive, friendship is also *not* inherited. Friends of the base have no special access to members of its derived classes, and friends of a derived class have no special access to the base class:
   >
   > ```c++
@@ -1847,7 +1846,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P730</footer>
 
-140. 
+1. 
   > **Exempting Individual Members**
   >
   > Sometimes we need to change the access level of a name that a derived class inherits. We can do so by providing a `using` declaration:
@@ -1872,7 +1871,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P731</footer>
 
-141. 
+1. 
   > By default, a derived class defined with the `class` keyword has `private` inheritance; a derived class defined with `struct` has `public` inheritance:
   >
   > ```c++
@@ -1885,12 +1884,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P732</footer>
 
-142. 
+1. 
   > For any given point in your code, if a `public` member of the base class would be accessible, then the derived-to-base conversion is also accessible, and not otherwise.
   >
   > <footer>C++ Primer (5th Edition), P729</footer>
 
-143. 
+1. 
   > **Name Lookup Happens before Type Checking**
   >
   > As we’ve seen, functions declared in an inner scope do not overload functions declared in an outer scope. As a result, functions defined in a derived class do not overload members defined in its base class(es). As in any other scope, if a member in a derived class (i.e., in an inner scope) has the same name as a base-class member (i.e., a name defined in an outer scope), then the derived member hides the base-class member within the scope of the derived class. The base member is hidden even if the functions have different parameter lists:
@@ -1911,7 +1910,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P736</footer>
 
-144. 
+1. 
   > **Defining a Derived Copy or Move Constructor**
   >
   > ```c++
@@ -1941,7 +1940,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P743-744</footer>
 
-145. 
+1. 
   > **Derived-Class Assignment Operator**
   >
   > ```c++
@@ -1957,7 +1956,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P744</footer>
 
-146. 
+1. 
   > **Derived-Class Destructor**
   >
   > Recall that the data members of an object are implicitly destroyed after the destructor body completes. Similarly, the base-class parts of an object are also implicitly destroyed. As a result, unlike the constructors and assignment operators, a derived destructor is responsible only for destroying the resources allocated by the derived class:
@@ -1972,7 +1971,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P745</footer>
 
-147. 
+1. 
   > **Calls to Virtuals in Constructors and Destructors**
   >
   > As we’ve seen, the base-class part of a derived object is constructed first. While the base-class constructor is executing, the derived part of the object is uninitialized. Similarly, derived objects are destroyed in reverse order, so that when a base class destructor runs, the derived part has already been destroyed. As a result, while these base-class members are executing, the object is incomplete.
@@ -1985,7 +1984,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P745</footer>
 
-148. 
+1. 
   > **Inherited Constructors**
   >
   > Under the *new standard*, a derived class can reuse the constructors defined by its direct base class.
@@ -2010,7 +2009,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P746-747</footer>
 
-149. 
+1. 
   > **Simulating Virtual Copy**
   >
   > We’ll solve this problem by giving our `Quote` classes a virtual member that allocates a copy of itself.
@@ -2048,7 +2047,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P752-753</footer>
 
-150. 
+1. 
   > **Nontype Template Parameters**
   >
   > ```c++
@@ -2075,12 +2074,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P774-775</footer>
 
-151. 
+1. 
   > By default, a member of an instantiated class template is instantiated only if the member is used.
   >
   > <footer>C++ Primer (5th Edition), P784</footer>
 
-152. 
+1. 
   > *Inside* the scope of the class template itself, we may use the name of the template without arguments:
   >
   > ```c++
@@ -2121,7 +2120,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P785</footer>
 
-153. 
+1. 
   > **Class Templates and Friends**
   >
   > **One-to-One Friendship**
@@ -2174,7 +2173,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P786-787</footer>
 
-154. 
+1. 
   > The *new standard* lets us define a type alias for a class template:
   >
   > ```c++
@@ -2184,7 +2183,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P788</footer>
 
-155. 
+1. 
   > Recall that we use the scope operator (::) to access both `static` members and type members. By default, the language assumes that a name accessed through the scope operator is not a type. As a result, if we want to use a type member of a template type parameter, we must explicitly tell the compiler that the name is a type. We do so by using the keyword `typename`:
   >
   > ```c++
@@ -2200,7 +2199,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P792</footer>
 
-156. 
+1. 
   > Under the *new standard*, we can supply default arguments for both function and class templates. Earlier versions of the language, allowed default arguments only with class templates.
   >
   > As an example, we’ll rewrite `compare` to use the library `less` function-object template by default:
@@ -2219,7 +2218,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P793</footer>
 
-157. 
+1. 
   > In large systems, the overhead of instantiating the same template in multiple files can become significant. Under the *new standard*, we can avoid this overhead through an **explicit instantiation**. An explicit instantiation has the form:
   >
   > ```c++
@@ -2255,14 +2254,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P798-799</footer>
 
-158. 
+1. 
   > **Instantiation Definitions Instantiate All Members**
   >
   > An instantiation definition for a class template instantiates *all* the members of that template including inline member functions. When the compiler sees an instantiation definition it cannot know which member functions the program uses. Hence, unlike the way it handles ordinary class template instantiations, the compiler instantiates *all* the members of that class. Even if we do not use a member, that member will be instantiated. Consequently, we can use explicit instantiation only for types that can be used with all the members of that template.
   >
   > <footer>C++ Primer (5th Edition), P799</footer>
 
-159. 
+1. 
   > **Exercise 16.27:** For each labeled statement explain what, if any, instantiations happen. If a template is instantiated, explain why; if not, explain why not.
   >
   > ```c++
@@ -2283,12 +2282,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P800</footer>
 
-160. 
+1. 
   > `const` conversions and array or function to pointer are the only automatic conversions for arguments to parameters with template types.
   >
   > <footer>C++ Primer (5th Edition), P803</footer>
 
-161. 
+1. 
   > **Normal Conversions Apply for Explicitly Specified Arguments**
   >
   > ```c++
@@ -2308,7 +2307,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P807</footer>
 
-162. 
+1. 
   > We might want to write a function that takes a pair of iterators denoting a sequence and returns a reference to an element in the sequence:
   >
   > ```c++
@@ -2334,14 +2333,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P808</footer>
 
-163. 
+1. 
   > **Standard Type Transformation Templates**
   >
   > ![](/media/cpp_primer_5_tbl_16_1.png)
   >
   > <footer>C++ Primer (5th Edition), P809</footer>
 
-164. 
+1. 
   > **Reference Collapsing and Rvalue Reference Parameters**
   >
   > Ordinarily, we cannot (directly) define a reference to a reference. However, it is possible to do so indirectly through a type alias or through a template type parameter.
@@ -2375,7 +2374,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > <br>
   > <footer>C++ Primer (5th Edition), P814</footer>
 
-165. 
+1. 
   > **How `std::move` Is Defined**
   >
   > ```c++
@@ -2391,7 +2390,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P816</footer>
 
-166. 
+1. 
   > **Forwarding**
   >
   > ```c++
@@ -2458,7 +2457,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P818-821</footer>
 
-167. 
+1. 
   > A **variadic template** is a template function or class that can take a varying number of parameters. The varying parameters are known as a **parameter pack**. There are two kinds of parameter packs: A **template parameter pack** represents zero or more template parameters, and a **function parameter pack** represents zero or more function parameters.
   >
   > ```c++
@@ -2471,7 +2470,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P827</footer>
 
-168. 
+1. 
   > When we need to know how many elements there are in a pack, we can use the `sizeof...` operator. Like `sizeof`, `sizeof...` returns a constant expression and does not evaluate its argument:
   >
   > ```c++
@@ -2483,7 +2482,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P828</footer>
 
-169. 
+1. 
   > When we **expand** a pack, we also provide a **pattern** to be used on each expanded element. Expanding a pack separates the pack into its constituent elements, applying the pattern to each element as it does so. We trigger an expansion by putting an ellipsis (`...`) to the right of the pattern.
   >
   > We might write a variadic function that calls `debug_rep` on each of its arguments and then calls `print` to print the resulting `string`s:
@@ -2509,7 +2508,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P830-832</footer>
 
-170. 
+1. 
   > **Function Template Specialization**
   >
   > ```c++
@@ -2543,7 +2542,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P835-836</footer>
 
-171. 
+1. 
   > **Class-Template Partial Specializations**
   >
   > Differently from function templates, a class template specialization does not have to supply an argument for every template parameter. We can specify some, but not all, of the template parameters or some, but not all, aspects of the parameters. A class template **partial specialization** is itself a template. Users must supply arguments for those template parameters that are not fixed by the specialization.
@@ -2576,7 +2575,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P840-841</footer>
 
-172. 
+1. 
   > **Specializing Members but Not the Class**
   >
   > ```c++
@@ -2604,17 +2603,17 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P841</footer>
   
-173. 
+1. 
   > Member templates may not be virtual.
   >
   > <footer>C++ Primer (5th Edition), P795</footer>
 
-174. 
+1. 
   > By default, the regular-expression language used by `regex` objects is ECMAScript
   >
   > <footer>C++ Primer (5th Edition), P860</footer>
 
-175. 
+1. 
   > **Regular Expression Library Classes**
   >
   > ![](/media/cpp_primer_5_tbl_17_8.png)
@@ -2638,26 +2637,26 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P864</footer>
 
-176. 
+1. 
   > The random-number library, defined in the `random` header, solves these problems through a set of cooperating classes: **random-number engines** and **random-number distribution classes**. An engine generates a sequence of `unsigned` random numbers. A distribution uses an engine to generate random numbers of a specified type, in a given range, distributed according to a particular probability distribution.
   >
   > <footer>C++ Primer (5th Edition), P876</footer>
 
-177. 
+1. 
   > **Manipulators Defined in `iostream`**
   >
   > ![](/media/cpp_primer_5_tbl_17_17.png)
   >
   > <footer>C++ Primer (5th Edition), P890</footer>
 
-178. 
+1. 
   > **Manipulators Defined in `iomanip`**
   >
   > ![](/media/cpp_primer_5_tbl_17_18.png)
   >
   > <footer>C++ Primer (5th Edition), P893</footer>
 
-179. 
+1. 
   > **Single-Byte Low-Level IO Operations**
   >
   > ![](/media/cpp_primer_5_tbl_17_19.png)
@@ -2685,7 +2684,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P894-896</footer>
 
-180. 
+1. 
   > **Multi-Byte Low-Level IO Operations**
   >
   > ![](/media/cpp_primer_5_tbl_17_20.png)
@@ -2694,14 +2693,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P896-897</footer>
 
-181. 
+1. 
   > Random IO is an inherently system-dependent. To understand how to use these features, you must consult your system’s documentation.
   >
   > On most systems, the streams bound to `cin`, `cout`, `cerr`, and `clog` do *not* support random access—after all, what would it mean to jump back ten places when we’re writing directly to `cout`? We can call the seek and tell functions, but these functions will fail at run time, leaving the stream in an invalid state.
   >
   > <footer>C++ Primer (5th Edition), P897</footer>
 
-182. 
+1. 
   > **Seek and Tell Functions**
   >
   > ![](/media/cpp_primer_5_tbl_17_21.png)
@@ -2714,17 +2713,17 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P899-900</footer>
 
-183. 
+1. 
   > This process, known as **stack unwinding**, continues up the chain of nested function calls until a `catch` clause for the exception is found, or the `main` function itself is exited without having found a matching `catch`.
   >
   > <footer>C++ Primer (5th Edition), P907</footer>
 
-184. 
+1. 
   > The fact that destructors are run during stack unwinding affects how we write destructors. During stack unwinding, an exception has been raised but is not yet handled. If a new exception is thrown during stack unwinding and not caught in the function that threw it, `terminate` is called. Because destructors may be invoked during stack unwinding, they should *never* throw exceptions that the destructor itself does not handle. That is, if a destructor does an operation that might throw, it should wrap that operation in a `try` block and handle it locally to the destructor.
   >
   > <footer>C++ Primer (5th Edition), P908-909</footer>
 
-185. 
+1. 
   > The rules for when an exception matches a `catch` exception declaration are much more restrictive than the rules used for matching arguments with parameter types. Most conversions are not allowed—the types of the exception and the `catch` declaration must match exactly with only a few possible differences:
   >
   > * Conversions from non`const` to `const` are allowed. That is, a `throw` of a non`const` object can match a `catch` specified to take a reference to `const`.
@@ -2732,11 +2731,11 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > * An array is converted to a pointer to the type of the array; a function is converted to the appropriate pointer to function type.
   >
   > <br>
-  > No other conversions are allowed to match a `catch`. In particular, neither the standard arithmetic conversions nor conversions defined for class types are permitted. 
+  > No other conversions are allowed to match a `catch`. In particular, neither the standard arithmetic conversions nor conversions defined for class types are permitted.
   >
   > <footer>C++ Primer (5th Edition), P911-912</footer>
 
-186. 
+1. 
   > A `catch` passes its exception out to another `catch` by **rethrowing** the exception. A rethrow is a `throw` that is not followed by an expression:
   >
   > ```c++
@@ -2747,12 +2746,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P912</footer>
 
-187. 
+1. 
   > Such handlers, sometimes known as **catch-all** handlers, have the form `catch(...)`. A catch-all clause matches any type of exception.
   >
   > <footer>C++ Primer (5th Edition), P912</footer>
 
-188. 
+1. 
   > To handle an exception from a constructor initializer, we must write the constructor as a **function `try` block**. A function `try` block lets us associate a group of `catch` clauses with the initialization phase of a constructor (or the destruction phase of a destructor) as well as with the constructor’s (or destructor’s) function body. As an example, we might wrap the `Blob` constructors in a function `try` block:
   >
   > ```c++
@@ -2765,7 +2764,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P914-915</footer>
 
-189. 
+1. 
   > Under the *new standard*, a function can specify that it does not throw exceptions by providing a **`noexcept` specification**. The keyword `noexcept` following the function parameter list indicates that the function won’t throw: 
   >
   > ```c++
@@ -2779,14 +2778,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P915-916</footer>
 
-190. 
+1. 
   > As a result, it is possible that a function that claims it will not throw will in fact throw. If a `noexcept` function does throw, `terminate` is called, thereby enforcing the promise not to throw at run time. It is unspecified whether the stack is unwound. As a result, `noexcept` should be used in *two* cases: if we are confident that the function won’t throw, and/or if we don’t know what we’d do to handle the error anyway.
   >
   > Specifying that a function won’t throw effectively promises the *callers* of the nonthrowing function that they will never need to deal with exceptions. Either the function won’t throw, or the whole program will terminate; the caller escapes responsibility either way.
   >
   > <footer>C++ Primer (5th Edition), P916</footer>
 
-191. 
+1. 
   > **Backward Compatibility: Exception Specifications**
   >
   > Earlier versions of C++ had a more elaborate scheme of exception specifications that allowed us to specify the types of exceptions that a function might throw. A function can specify the keyword `throw` followed by a parenthesized list of types that the function might throw.
@@ -2802,7 +2801,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P917</footer>
 
-192. 
+1. 
   > **Arguments to the noexcept Specification**
   >
   > The `noexcept` specifier takes an optional argument that must be convertible to `bool`: If the argument is `true`, then the function won’t throw; if the argument is `false`, then the function might throw:
@@ -2832,7 +2831,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P917-918</footer>
 
-193. 
+1. 
   > **Exception Specifications and Pointers, Virtuals, and Copy Control**
   >
   > If we declare a pointer that has a nonthrowing exception specification, we can use that pointer only to point to similarly qualified functions. A pointer that specifies (explicitly or implicitly) that it might throw can point to any function, even if that function includes a promise not to throw.
@@ -2843,7 +2842,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P919</footer>
 
-194. 
+1. 
   > The *new standard* introduced a new kind of nested namespace, an **inline namespace**. Unlike ordinary nested namespaces, names in an inline namespace can be used as if they were direct members of the enclosing namespace. That is, we need not qualify names from an inline namespace by their namespace name. We can access them using only the name of the enclosing namespace.
   >
   > An inline namespace is defined by preceding the keyword `namespace` with the keyword `inline`:
@@ -2862,7 +2861,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P927-928</footer>
 
-195. 
+1. 
   > An **unnamed namespace** is the keyword `namespace` followed immediately by a block of declarations delimited by curly braces. Variables defined in an unnamed namespace have static lifetime: They are created before their first use and destroyed when the program ends.
   >
   > An unnamed namespace may be discontiguous within a given file but does not span files. Each file has its own unnamed namespace. If two files contain unnamed namespaces, those namespaces are unrelated.
@@ -2886,7 +2885,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P928-929</footer>
 
-196. 
+1. 
   > A **namespace alias** can be used to associate a shorter synonym with a namespace name. For example, a long namespace name such as 
   >
   > ```c++
@@ -2901,14 +2900,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P930</footer>
 
-197. 
+1. 
   > A **`using` declaration** introduces only one namespace member at a time.
   >
   > A **`using` directive**, like a `using` declaration, allows us to use the unqualified form of a namespace name. Unlike a `using` declaration, we retain no control over which names are made visible—they all are.
   >
   > <footer>C++ Primer (5th Edition), P930-931</footer>
 
-198. 
+1. 
   > **Argument-Dependent Lookup and Parameters of Class Type**
   >
   > Consider the following simple program:
@@ -2930,7 +2929,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P936</footer>
 
-199. 
+1. 
   > **Lookup and `std::move` and `std::forward`**
   >
   > Now consider the library `move` and `forward` functions. Both of these functions are template functions, and the library defines versions of them that have a single rvalue reference function parameter. As we’ve seen, in a function template, an rvalue reference parameter can match any type. If our application defines a function named `move` that takes a single parameter, then—no matter what type the parameter has—the application’s version of `move` will collide with the library version. Similarly for `forward`.
@@ -2941,7 +2940,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P937</footer>
 
-200. 
+1. 
   > **Inherited Constructors and Multiple Inheritance**
   >
   > Under the *new standard*, a derived class can inherit its constructors from one or more of its base classes. It is an error to inherit the same constructor (i.e., one with the same parameter list) from more than one base class:
@@ -2978,7 +2977,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P943</footer>
 
-201. 
+1. 
   > In a virtual derivation, the virtual base is initialized by the most derived constructor. In our example, when we create a `Panda` object, the `Panda` constructor alone controls how the `ZooAnimal` base class is initialized.
   >
   > ![](/media/cpp_primer_5_fig_18_3.png)
@@ -2998,12 +2997,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P953-954</footer>
 
-202. 
-  > Virtual base classes are always constructed prior to nonvirtual base classes regardless of where they appear in the inheritance hierarchy. 
+1. 
+  > Virtual base classes are always constructed prior to nonvirtual base classes regardless of where they appear in the inheritance hierarchy.
   >
   > <footer>C++ Primer (5th Edition), P954</footer>
 
-203. 
+1. 
   > A class can have more than one virtual base class. In that case, the virtual subobjects are constructed in left-to-right order as they appear in the derivation list. For example, in the following whimsical `TeddyBear` derivation, there are two virtual base classes: `ToyAnimal`, a direct virtual base, and `ZooAnimal`, which is a virtual base class of `Bear`:
   >
   > ```c++
@@ -3030,7 +3029,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P955</footer>
 
-204. 
+1. 
   > **Exercise 18.29**
   >
   > ```c++
@@ -3068,14 +3067,14 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P955-956</footer>
 
-205. 
+1. 
   > **Overloading `new` and `delete`**
   >
   > Applications can define `operator new` and `operator delete` functions in the global scope and/or as member functions. When the compiler sees a `new` or `delete` expression, it looks for the corresponding `operator` function to call. If the object being allocated (deallocated) has class type, the compiler first looks in the scope of the class, including any base classes. If the class has a member `operator new` or `operator delete`, that function is used by the `new` or `delete` expression. Otherwise, the compiler looks for a matching function in the global scope. If the compiler finds a user-defined version, it uses that function to execute the `new` or `delete` expression. Otherwise, the standard library version is used.
   >
   > <footer>C++ Primer (5th Edition), P961-962</footer>
 
-206. 
+1. 
   > **The `operator new` and `operator delete` Interface**
   > 
   > The library defines eight overloaded versions of `operator new` and `delete` functions. The first four support the versions of `new` that can throw a `bad_alloc` exception. The next four support nonthrowing versions of `new`: 
@@ -3096,7 +3095,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P962</footer>
 
-207. 
+1. 
   > **`new` Expression versus `operator new` Function**
   >
   > A `new` expression always executes by calling an `operator new` function to obtain memory and then constructing an object in that memory. A `delete` expression always executes by destroying an object and then calling an `operator delete` function to free the memory used by the object.
@@ -3105,7 +3104,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P963</footer>
 
-208. 
+1. 
   > A simple way to write `operator new` and `operator delete` is as follows:
   >
   > ```c++
@@ -3120,7 +3119,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P964</footer>
 
-209. 
+1. 
   > **Placement `new` Expressions**
   >
   > In earlier versions of the language—before the `allocator` class was part of the library—applications that wanted to separate allocation from initialization did so by calling `operator new` and `operator delete`. These functions behave analogously to the `allocate` and `deallocate` members of `allocator`. Like those members, `operator new` and `operator delete` functions allocate and deallocate memory but do not construct or destroy objects.
@@ -3138,7 +3137,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P965</footer>
 
-210. 
+1. 
   > A `dynamic_cast` has the following form:
   >
   > ```c++
@@ -3153,7 +3152,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P965</footer>
 
-211. 
+1. 
   > A `typeid` expression has the form `typeid(e)` where `e` is any expression or a type name. The result of a `typeid` operation is a reference to a `const` object of a library type named `type_info`, or a type publicly derived from `type_info`. The `type_info` class is defined in the `typeinfo` header.
   >
   > Ordinarily, we use `typeid` to compare the types of two expressions or to compare the type of an expression to a specified type:
@@ -3180,11 +3179,11 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > }
   > ```
   >
-  > The `typeid` of a pointer (as opposed to the object to which the pointer points) returns the static, compile-time type of the pointer. 
+  > The `typeid` of a pointer (as opposed to the object to which the pointer points) returns the static, compile-time type of the pointer.
   >
   > <footer>C++ Primer (5th Edition), P969-970</footer>
 
-212. 
+1. 
   > **Run-time type identification** (RTTI) is provided through two operators:
   >   * The `typeid` operator, which returns the type of a given expression
   >   * The `dynamic_cast` operator, which safely converts a pointer or reference to a base type into a pointer or reference to a derived type
@@ -3196,7 +3195,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P966, P970-971</footer>
 
-213. 
+1. 
   > C++ has two kinds of enumerations: scoped and unscoped. The *new standard* introduced **scoped enumerations**. We define a scoped enumeration using the keywords `enum class` (or, equivalently, `enum struct`), followed by the enumeration name and a comma-separated list of **enumerators** enclosed in curly braces. A semicolon follows the close curly:
   >
   > ```c++
@@ -3217,7 +3216,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P975</footer>
 
-214. 
+1. 
   > An enumerator value need not be unique.
   >
   > Enumerators are `const` and, if initialized, their initializers must be constant expressions.
@@ -3231,7 +3230,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P976</footer>
 
-215. 
+1. 
   > **Specifying the Size of an `enum`**
   >
   > Although each `enum` defines a unique type, it is represented by one of the built-in integral types. Under the *new standard*, we may specify that type by following the `enum` name with a colon and the name of the type we want to use:
@@ -3248,7 +3247,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P976-977</footer>
 
-216. 
+1. 
   > **Forward Declarations for Enumerations**
   >
   > Under the *new standard*, we can forward declare an `enum`. An enum forward declaration must specify (implicitly or explicitly) the underlying size of the `enum`:
@@ -3263,7 +3262,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P977</footer>
 
-217. 
+1. 
   > **Pointers to Data Members**
   >
   > ```c++
@@ -3297,7 +3296,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P979</footer>
 
-218. 
+1. 
   > **Using a Pointer to Data Member**
   >
   > Analogous to the member access operators, `.` and `->`, there are two pointer-tomember access operators, `.*` and `->*`, that let us supply an object and dereference the pointer to fetch a member of that object:
@@ -3312,12 +3311,12 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   >
   > <footer>C++ Primer (5th Edition), P979-980</footer>
 
-219. 
+1. 
   > Because of the relative precedence of the call operator, declarations of pointers to member functions and calls through such pointers must use parentheses: `(C::*p)(parms)` and `(obj.*p)(args)`.
   >
   > <footer>C++ Primer (5th Edition), P982</footer>
 
-220. 
+1. 
   > **Using Member Functions as Callable Objects**
   >
   > Because a pointer to member is not a callable object, we cannot directly pass a pointer to a member function to an algorithm. As an example, if we wanted to find the first empty `string` in a `vector` of `string`s, the obvious call won’t work:
@@ -3395,21 +3394,21 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P985-987</footer>
 
-221. 
+1. 
   > **The Nested and Enclosing Classes Are Independent**
   >
   > Although a nested class is defined in the scope of its enclosing class, it is important to understand that there is no connection between the objects of an enclosing class and objects of its nested classe(s). A nested-type object contains only the members defined inside the nested type. Similarly, an object of the enclosing class has only those members that are defined by the enclosing class. It does not contain the data members of any nested classes.
   > 
   > <footer>C++ Primer (5th Edition), P991</footer>
 
-222. 
+1. 
   > Some, but not all, class features apply equally to `union`s. A `union` cannot have a member that is a reference, but it can have members of most other types, including, under the *new standard*, class types that have constructors or destructors. A `union` can specify protection labels to make members `public`, `private`, or `protected`. By default, like `struct`s, members of a `union` are `public`.
   >
   > A `union` may define member functions, including constructors and destructors. However, a `union` may not inherit from another class, nor may a `union` be used as a base class. As a result, a `union` may not have virtual functions.
   > 
   > <footer>C++ Primer (5th Edition), P991</footer>
 
-223. 
+1. 
   > **Using a `union` Type**
   >
   > The name of a `union` is a type name. Like the built-in types, by default unions are uninitialized. We can explicitly initialize a union in the same way that we can explicitly initialize aggregate classes by enclosing the initializer in a pair of curly braces:
@@ -3432,7 +3431,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P992</footer>
 
-224. 
+1. 
   > An **anonymous `union`** is an unnamed `union` that does not include any declarations between the close curly that ends its body and the semicolon that ends the `union` definition. When we define an anonymous `union` the compiler automatically creates an unnamed object of the newly defined `union` type:
   >
   > ```c++
@@ -3449,7 +3448,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P993</footer>
 
-225. 
+1. 
   > **`union`s with Members of Class Type**
   >
   > Under earlier versions of C++, `union`s could not have members of a class type that defined its own constructors or copy-control members. Under the new standard, this restriction is lifted. However, `union`s with members that define their own constructors and/or copy-control members are more complicated to use than `union`s that have members of built-in type.
@@ -3525,7 +3524,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P993-997</footer>
 
-226. 
+1. 
   > A class can be defined inside a function body. Such a class is called a **local class**.
   >
   > All members, including functions, of a local class must be completely defined inside the class body.
@@ -3534,7 +3533,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P997-998</footer>
 
-227. 
+1. 
   > **Local Classes May Not Use Variables from the Function’s Scope**
   >
   > A local class can access only type names, `static` variables, and enumerators defined within the enclosing local scopes. A local class may not use the ordinary local variables of the function in which the class is defined:
@@ -3563,7 +3562,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P998</footer>
 
-228. 
+1. 
   > **Nested Local Classes**
   >
   > It is possible to nest a class inside a local class. In this case, the nested class definition can appear outside the local-class body. However, the nested class must be defined in the same scope as that in which the local class is defined.
@@ -3587,7 +3586,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P999</footer>
 
-229. 
+1. 
   > A class can define a (non`static`) data member as a **bit-field**. A bit-field holds a specified number of bits. Bit-fields are normally used when a program needs to pass binary data to another program or to a hardware device. The memory layout of a bit-field is machine dependent.
   >
   > A bit-field must have integral or enumeration type. Ordinarily, we use an `unsigned` type to hold a bit-field, because the behavior of a `signed` bit-field is implementation defined. We indicate that a member is a bit-field by following the member name with a colon and a constant expression specifying the number of bits:
@@ -3618,7 +3617,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P1000</footer>
 
-230. 
+1. 
   > **`volatile` Qualifier**
   >
   > Programs that deal directly with hardware often have data elements whose value is controlled by processes outside the direct control of the program itself. For example, a program might contain a variable updated by the system clock. An object should be declared **`volatile`** when its value might be changed in ways outside the control or detection of the program. The `volatile` keyword is a directive to the compiler that it should not perform optimizations on such objects.
@@ -3634,7 +3633,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P1001-1002</footer>
 
-231. 
+1. 
   > We can declare pointers that are `volatile`, pointers to `volatile` objects, and pointers that are `volatile` that point to `volatile` objects:
   >
   > ```c++
@@ -3650,7 +3649,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P1002</footer>
 
-232. 
+1. 
   > **Synthesized Copy Does Not Apply to `volatile` Objects**
   >
   > One important difference between the treatment of `const` and `volatile` is that the synthesized copy/move and assignment operators cannot be used to initialize or assign from a `volatile` object. The synthesized members take parameters that are references to (non`volatile`) `const`, and we cannot bind a non`volatile` reference to a `volatile` object.
@@ -3671,7 +3670,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P1002-1003</footer>
 
-233. 
+1. 
   > C++ uses **linkage directives** to indicate the language used for any non-C++ function.
   >
   > ```c++
@@ -3690,7 +3689,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P1003-1004</footer>
 
-234. 
+1. 
   > **Pointers to `extern "C"` Functions**
   >
   > The language in which a function is written is part of its type. Hence, every declaration of a function defined with a linkage directive must use the same linkage directive. Moreover, pointers to functions written in other languages must be declared with the same linkage directive as the function itself: Code:
@@ -3702,7 +3701,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P1004-1005</footer>
 
-235. 
+1. 
   > **Linkage Directives Apply to the Entire Declaration**
   >
   > When we use a linkage directive, it applies to the function and any function pointers used as the return type or as a parameter type:
@@ -3723,7 +3722,7 @@ callable: `_1` is the first parameter in `newCallable`, `_2` is the second, and 
   > 
   > <footer>C++ Primer (5th Edition), P1005-1006</footer>
 
-236. 
+1. 
   > **Exporting Our C++ Functions to Other Languages**
   >
   > By using the linkage directive on a function definition, we can make a C++ function available to a program written in another language:
