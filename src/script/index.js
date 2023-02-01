@@ -1,35 +1,35 @@
-const common = require('./common');
-
 const SERVER_ENDPOINT = 'https://chuyangliu.top/bastion';
 const MSG_UNREACHABLE = 'I\'m undergoing maintenance right now. Please try again later.';
 
-const print = (output, msg) => {
-  output.append(msg.replaceAll('\r', '').replaceAll('\n', '<br>'));
-};
-
-const printLn = (output, msg) => {
-  print(output, `${msg}<br>`);
-};
-
-const setButtonState = (button, state) => {
-  if (state) {
-    button.removeAttr('disabled');
-  } else {
-    button.attr('disabled', 'disabled');
-  }
-};
+const common = require('./common');
 
 const execute = () => {
   const input = $('input#command');
   const output = $('samp#output');
-  const btn = $('button#run');
-  const cmd = input.val();
 
-  input.val('');
-  output.text('');
-  setButtonState(btn, false);
+  const print = (msg, clear = false, newline = false) => {
+    if (clear) {
+      output.text('');
+    }
+    output.append(msg.replaceAll('\r', '').replaceAll('\n', '<br>'));
+    if (newline) {
+      output.append('<br>');
+    }
+  };
 
-  printLn(output, cmd.trim().length <= 0 ? '> (empty)' : `> ${cmd}`);
+  const disableInput = () => {
+    input.val('');
+    input.attr('disabled', 'disabled');
+  };
+
+  const enableInput = () => {
+    input.removeAttr('disabled');
+    input.focus();
+  };
+
+  const cmd = input.val().trim();
+  disableInput();
+  print(cmd.length <= 0 ? '> (empty)' : `> ${cmd}`, true, true);
 
   setTimeout(() => {
     $.ajax({
@@ -46,11 +46,11 @@ const execute = () => {
         'text xml': window.String,
       },
     }).done((resp) => {
-      print(output, resp);
+      print(resp);
     }).fail(() => {
-      print(output, MSG_UNREACHABLE);
+      print(MSG_UNREACHABLE);
     }).always(() => {
-      setButtonState(btn, true);
+      enableInput();
     });
   }, 1000);
 };

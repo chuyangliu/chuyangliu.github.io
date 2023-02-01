@@ -1,13 +1,9 @@
 @import 'default.css';
 
-samp {
+.form-group {
+  margin-bottom: 10px;
+}
+
+samp#output {
   font-size: 14px;
-}
-
-button {
-  margin-left: 6px;
-}
-
-button#run:focus {
-  outline: none;
 }
