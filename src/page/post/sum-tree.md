@@ -1,26 +1,26 @@
-Sum tree is a data structure similar to [binary heap][wiki-binary-heap]. Instead of the usual heap property, the value of a parent node is the sum of its children. DeepMind used this data structure to efficiently sample data according to their priorities<sup>[[1]](#references)</sup>. Concretely, data with higher priority will be more likely to be sampled and the time complexity of sampling and updating a sum tree is \\(O \left( \log n \right)\\), where \\(n\\) is the number of nodes in the tree. [[Source]][src-sum-tree]
+Sum tree is a data structure based on [binary heap][binary-heap]. Besides basic heap properties, the value of each node in a sum tree equals to the sum of the values from the two child nodes. DeepMind used this data structure to efficiently sample data according to their priorities<sup>[[1]][deepmind]</sup>. Concretely, nodes with higher value (priority) are more likely to be sampled in a sum tree. The time complexity of sampling and updating a sum tree is \\(O \left( \log n \right)\\), where \\(n\\) is the number of nodes in the tree. [Here][source] is one example implementation of the data structure.
 
 ## Definitions
 
 | Symbol | Description |
 | ------ | ----------- |
-|\\(n\\)|Number of nodes in the sum tree.|
-|\\( a_i \ \left( 1 \leqslant i \leqslant n \right) \\)|One specific node in the sum tree. The subscript \\(i\\) is the same as the index of the array representation of binary heap (with \\(i=1\\) indicating the root node, \\(i*2\\) indicating the left child, etc).|
-|\\( parent \left( a_i \right) \\)|Parent node of node \\(a_i\\).|
-|\\( v \left( a_i \right) \\)|Value of node \\(a_i\\). If the node is a leaf, the value is the priority of the data associated with it. Otherwise, the value is the sum of the values of its two children.|
-|\\( P \left( a_i \right) \\)|Probability that node \\(a_i\\) is *visited*.|
+|\\(n\\)|Number of nodes in a sum tree.|
+|\\(a_i \left( 1 \leqslant i \leqslant n \right)\\)|One specific node in a sum tree, where \\(i\\) is the same as the index of the array representation of a binary heap, with \\(a_1\\) indicating the root node, \\(a_{i\*2}\\) indicating the left child of node \\(a_i\\), and \\(a_{i\*2+1}\\) indicating the right child of node \\(a_i\\).|
+|\\(parent \left( a_i \right)\\)|Parent node of node \\(a_i\\).|
+|\\(v \left( a_i \right)\\)|Value of node \\(a_i\\). If \\(a_i\\) is a leaf node, \\(v \left( a_i \right)\\) is the priority of the data associated with it. Otherwise, \\(v \left( a_i \right)\\) is the sum of the values from its two child nodes.|
+|\\(P \left( a_i \right)\\)|Probability that node \\(a_i\\) is **visited** (explained in the example below).|
 
 ## Example
 
-Suppose we have a data set of \\(8\\) elements and the priority values are \\(3,10,12,4,1,2,8,2\\), respectively. Now we want to sample one element from this data set and expect that elements with higher priority will be more likely to be sampled. To solve this problem, we can build a sum tree below:
+Suppose we have a data set of 8 elements with priority values being 3, 10, 12, 4, 1, 2, 8, 2, respectively. Now we want to sample elements from this data set, and expect that elements with higher priority are more likely to be sampled. To solve this problem, we can build a sum tree below:
 
 ![](/media/sum_tree.png)
 
-From the picture<sup>[[2]](#references)</sup>, we can see that the tree has \\(8\\) leaves storing the priority values of the \\(8\\) elements. The value of each inner node is the sum of the values of its two children. Thus, the value of the root node is the sum of all priority values. In this problem, \\(42\\).
+From the picture above, we can see that the tree has 8 leaf nodes storing the priority values of the 8 elements. The value of each inner node is the sum of the values from both child nodes. Therefore, the value of the root node is the sum of all priority values, which is 42.
 
-To sample one element, first we uniformly sample a number within the interval \\( \left[ 0,42 \right] \\). Suppose we get the number \\(24\\), we start at the root node and look at its left child (with value \\(29\\)), finding that \\(24 \leqslant 29\\), so we transfer our focus from the root node to the left child. Looking at its left child (with value \\(13\\)), we find \\(24 \nleqslant 13\\), so we transfer our focus to its right child (with value \\(16\\)). Since we pass the left child (with value \\(13\\)), we should subtract \\(13\\) from \\(24\\) and consider \\(11 \left( =24-13 \right)\\) as our number instead of \\(24\\). We now process the right child (with value \\(16\\)), looking at its left child (with value \\(12\\)) and finding that \\(11 \leqslant 12\\), so we transfer our focus to the left child. Since the left child is a leaf, we sample the element with priority \\(12\\). Note that by definition, we have *visited* node \\(a_1, a_2, a_5, a_{10}\\) through this sampling process.
+To sample one element, we first uniformly sample a number within the interval [0, 42], and suppose we get the number 24. We then start at the root node and look at its left child (with value 29). Finding that 24 \\(\leqslant\\) 29, we move from the root node to the left child. Looking at its left child (with value 13), we find 24 \\(\nleqslant\\) 13, so we move to the right child (with value 16). Since we pass the left child, we subtract 13 from 24 and consider 11 (=24-13) as the new number for traversing. Sitting on the node with value 16, we look at the left child (with value 12) and find that 11 \\(\leqslant\\) 12, so we move to the left child. Since we reach a leaf node, we sample the element with priority specified in the node. In this example, the element with priority 12 is sampled. Throughout the process, we have **visited** node \\(a_1\\), \\(a_2\\), \\(a_5\\), and \\(a_{10}\\).
 
-Sampling method described above will ensure that
+The sampling process described above ensures that when \\(1 \leqslant i \leqslant n\\),
 
 $$
 P \left( a_i \right) = \dfrac{v \left( a_i \right)}{v \left( a_1 \right)} \label{1} \tag{1}
@@ -28,19 +28,17 @@ $$
 
 ## Proof
 
-Obviously, equation \\(\left(\ref{1}\right)\\) holds when \\(i=1\\) because the root node will always be visited:
+Obviously, equation \\(\ref{1}\\) holds when \\(i=1\\) because the root node will always be visited:
 
 $$
-\begin{align}
 P \left( a_1 \right) = 1 = \dfrac{v \left( a_1 \right)}{v \left( a_1 \right)}
-\end{align}
 $$
 
-To prove equation \\(\left(\ref{1}\right)\\) holds when \\(i>1\\), we first take a look at a "small" sum tree with \\(3\\) nodes: 
+To prove equation \\(\ref{1}\\) holds when \\(i>1\\), we can start with a small sum tree with 3 nodes:
 
 ![](/media/sum_tree_trivial.png)
 
-According to the sampling method, we start by sampling a number within the interval \\( \left[ 0,a+b \right] \\). Suppose we get a number \\(x\\), if \\(x \leqslant a\\), the left child will be sampled. Otherwise, we will sample the right child. Thus, 
+According to the sampling method, we start by sampling a number within the interval \\( \left[ 0, a+b \right] \\). Suppose we get the number \\(x\\). If \\(x \leqslant a\\), the left child will be sampled. Otherwise, we will sample the right child. Therefore,
 
 $$
 \begin{align}
@@ -49,7 +47,7 @@ P \left( a_3 \right) &= P \left( a < x \leqslant a+b \right) = \dfrac{b}{a+b} = 
 \end{align}
 $$
 
-Since every sum tree can be regarded as consisting of several "small" subtrees mentioned above, we can derive that
+Since every sum tree can be constructed recursively from several small sum trees mentioned above, we can derive that
 
 $$
 \begin{align}
@@ -58,7 +56,7 @@ P \left( a_i \right) &= P \left( parent \left( a_i \right) \right) P \left( a_i 
 \end{align} \label{2} \tag{2}
 $$
 
-We can solve equation \\(\left(\ref{2}\right)\\) recursively:
+We can solve equation \\(\ref{2}\\) recursively:
 
 $$
 \begin{align}
@@ -69,22 +67,16 @@ P \left( parent \left( \dots \right) \right) &= P \left( a_1 \right) \dfrac{v \l
 \end{align} 
 $$
 
-Multiply equation \\(\left(\ref{3}\right) \thicksim \left(\ref{k}\right)\\), we get
+Multiply equations \\(\ref{3} \thicksim \ref{k}\\). We can get:
 
 $$
 P \left( a_i \right) = P \left( a_1 \right) \dfrac{v \left( a_i \right)}{v \left( a_1 \right)} = \dfrac{v \left( a_i \right)}{v \left( a_1 \right)}
 $$
 
-Thus, equation \\(\left(\ref{1}\right)\\) holds.
+Therefore, equation \\(\ref{1}\\) holds when \\(i>1\\) as well.
 
-## References
+In conclusion, equation \\(\ref{1}\\) holds when \\(1 \leqslant i \leqslant n\\).
 
-1. Schaul, T., Quan, J., Antonoglou, I., Silver, D. Prioritized experience replay. *ICLR*, 2016. [[Link]][ref-paper-pri]
-2. Mofan Z. Prioritized Experience Replay (DQN) (Tensorflow). 2017. [[Link]][ref-tutorial-pri]
-
-[wiki-binary-heap]: https://en.wikipedia.org/wiki/Binary_heap
-
-[src-sum-tree]: https://github.com/chuyangliu/Snake/blob/master/snake/util/sumtree.py
-
-[ref-paper-pri]: https://arxiv.org/abs/1511.05952/
-[ref-tutorial-pri]: https://morvanzhou.github.io/tutorials/machine-learning/reinforcement-learning/4-6-prioritized-replay/
+[binary-heap]: https://en.wikipedia.org/wiki/Binary_heap
+[source]: https://github.com/chuyangliu/Snake/blob/master/snake/util/sumtree.py
+[deepmind]: https://arxiv.org/abs/1511.05952/
