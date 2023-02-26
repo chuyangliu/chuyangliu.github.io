@@ -35,16 +35,9 @@ const execute = () => {
     $.ajax({
       url: SERVER_ENDPOINT,
       method: 'POST',
-      data: {
-        command: cmd,
-      },
-      timeout: 3000,
-      converters: {
-        '* text': window.String,
-        'text html': window.String,
-        'text json': window.String,
-        'text xml': window.String,
-      },
+      contentType: 'text/plain; charset=utf-8',
+      data: cmd,
+      timeout: 5000,
     }).done((resp) => {
       print(resp);
     }).fail(() => {
