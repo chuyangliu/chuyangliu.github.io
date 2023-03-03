@@ -37,7 +37,7 @@ const execute = () => {
       method: 'POST',
       contentType: 'text/plain; charset=utf-8',
       data: cmd,
-      timeout: 5000,
+      timeout: 10000,
     }).done((resp) => {
       print(resp);
     }).fail(() => {
