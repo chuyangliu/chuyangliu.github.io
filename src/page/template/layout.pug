@@ -20,12 +20,10 @@ mixin head()
 
   link(rel='canonical', href=`${cfg.canonical}`)
 
-  link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css',
-       integrity='sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu', crossorigin='anonymous')
+  link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css', crossorigin='anonymous')
 
   if cfg.highlighjs
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/base16/equilibrium-light.min.css',
-         integrity='sha512-NP+owW/oTQAAi/rS9vG0BoI9YsEx2TV/RMyu/Q1TALUyQuH7LKARCv7LYIDUZYf6j8ZjVESmHCZlI6i2xTun0Q==' crossorigin='anonymous')
+    link(rel='stylesheet', href='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/base16/equilibrium-light.min.css', crossorigin='anonymous')
 
   block style
 
@@ -44,19 +42,15 @@ mixin body()
           include footer/full.pug
       .col-sm-1
 
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js',
-         integrity='sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==', crossorigin='anonymous')
+  script(src='https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js', crossorigin='anonymous')
 
-  script(src='https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js',
-         integrity='sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd', crossorigin='anonymous')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js', crossorigin='anonymous')
 
   if cfg.highlighjs
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js',
-           integrity='sha512-yUUc0qWm2rhM7X0EFe82LNnv2moqArj5nro/w1bi05A09hRVeIZbN6jlMoyu0+4I/Bu4Ck/85JQIU82T82M28w==', crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js', crossorigin='anonymous')
 
   if cfg.mathjax
-    script(async, src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML',
-           integrity='sha512-Fv0JVzxvrWFLhiUP8wZYR6VwBZQt0XqB9MhHZE+12lObqIDzg3LOJcCCiRy6g4MCX/MlG+R9IRCWZAHjo9iBgw==', crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js', crossorigin='anonymous', async)
 
   block script
 
