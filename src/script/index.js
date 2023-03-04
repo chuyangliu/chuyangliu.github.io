@@ -1,5 +1,6 @@
 const SERVER_ENDPOINT = 'https://chuyangliu.top/bastion';
 const MSG_UNREACHABLE = 'I\'m undergoing maintenance right now. Please try again later.';
+const TIMEOUT = 60000;
 
 const common = require('./common');
 
@@ -37,7 +38,7 @@ const execute = () => {
       method: 'POST',
       contentType: 'text/plain; charset=utf-8',
       data: cmd,
-      timeout: 10000,
+      timeout: TIMEOUT,
     }).done((resp) => {
       print(resp);
     }).fail(() => {
