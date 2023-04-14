@@ -6,32 +6,38 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>https://www.chuyangliu.com/</loc>
-  <lastmod>2023-01-31T23:43:38+00:00</lastmod>
+  <lastmod>2023-04-14T01:08:50+00:00</lastmod>
   <changefreq>daily</changefreq>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.chuyangliu.com/post/</loc>
-  <lastmod>2023-01-31T23:43:38+00:00</lastmod>
+  <loc>https://www.chuyangliu.com/curated.html</loc>
+  <lastmod>2023-04-14T01:08:50+00:00</lastmod>
+  <changefreq>daily</changefreq>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.chuyangliu.com/posts/</loc>
+  <lastmod>2023-04-14T01:08:50+00:00</lastmod>
   <changefreq>daily</changefreq>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://www.chuyangliu.com/post/sum-tree.html</loc>
-  <lastmod>2023-01-31T23:43:38+00:00</lastmod>
+  <loc>https://www.chuyangliu.com/posts/sum-tree.html</loc>
+  <lastmod>2023-04-14T01:08:50+00:00</lastmod>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.chuyangliu.com/post/lang-notes-c.html</loc>
-  <lastmod>2023-01-31T23:43:38+00:00</lastmod>
+  <loc>https://www.chuyangliu.com/posts/lang-notes-c.html</loc>
+  <lastmod>2023-04-14T01:08:50+00:00</lastmod>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
+  <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://www.chuyangliu.com/post/lang-notes-cpp.html</loc>
-  <lastmod>2023-01-31T23:43:38+00:00</lastmod>
+  <loc>https://www.chuyangliu.com/posts/lang-notes-cpp.html</loc>
+  <lastmod>2023-04-14T01:08:50+00:00</lastmod>
   <changefreq>daily</changefreq>
-  <priority>0.80</priority>
+  <priority>0.64</priority>
 </url>
 </urlset>
