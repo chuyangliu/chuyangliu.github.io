@@ -1,7 +1,7 @@
 extends ../template/layout.pug
 
 append var
-  - cfg.canonical = 'https://www.chuyangliu.com/post/'
+  - cfg.canonical = 'https://www.chuyangliu.com/posts/'
   - cfg.title = 'Posts'
 
 block meta
@@ -14,4 +14,4 @@ block script
   script(src='/script/default.js')
 
 block content
-  include /markdown/post/index.html
+  include /markdown/posts/index.html

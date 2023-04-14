@@ -1,0 +1,17 @@
+extends template/layout.pug
+
+append var
+  - cfg.canonical = 'https://www.chuyangliu.com/curated.html'
+  - cfg.title = 'My Curated List'
+
+block meta
+  meta(name='description', content='Curated contents by Chuyang Liu.')
+
+block style
+  link(rel='stylesheet', href='/style/default.css')
+
+block script
+  script(src='/script/default.js')
+
+block content
+  include /markdown/curated.html

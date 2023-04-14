@@ -1,7 +1,8 @@
 # Chuyang Liu
 
 **Email:** chuyang dot s dot liu at gmail dot com<br>
-**Links:** [Posts][posts] | [GitHub][github]
+**Links:** [Curated][curated] | [Posts][posts] | [GitHub][github]
 
-[posts]: /post/
+[curated]: /curated.html
+[posts]: /posts/
 [github]: https://github.com/chuyangliu/
