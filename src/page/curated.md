@@ -6,7 +6,7 @@ Although the title may suggest a straightforward comparison between the advantag
 
 [Reverse Engineering A Mysterious UDP Stream in My Hotel](https://www.gkbrk.com/2016/05/hotel-music/)
 
-By analyzing UDP packets, the author uncovered a secret about the hotel. I don't want to explain more just to spoil it, but trust me, it's worth a quick read and will definitely make your day!
+By analyzing UDP datagrams, the author uncovered a secret about the hotel. I don't want to explain more just to spoil it, but trust me, it's worth a quick read and will definitely make your day!
 
 <br>
 
