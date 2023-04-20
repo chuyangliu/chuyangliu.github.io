@@ -1,7 +1,6 @@
 block var
   -
     const cfg = {
-      canonical: '',
       title: '',
       highlightjs: false,
       mathjax: false,
@@ -17,8 +16,6 @@ mixin head()
     title Chuyang Liu
   else
     title #{cfg.title} - Chuyang Liu
-
-  link(rel='canonical', href=`${cfg.canonical}`)
 
   link(rel='stylesheet', href='https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css', crossorigin='anonymous')
 
