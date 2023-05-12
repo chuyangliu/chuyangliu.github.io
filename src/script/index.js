@@ -1,4 +1,4 @@
-const SERVER_ENDPOINT = 'https://chuyangliu.top/bastion';
+const SERVER_ENDPOINT = 'https://api.chuyangliu.com/bastion';
 const MSG_UNREACHABLE = 'I\'m undergoing maintenance right now. Please try again later.';
 const TIMEOUT = 60000;
 
