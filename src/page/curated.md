@@ -12,10 +12,16 @@ By analyzing UDP datagrams, the author uncovered a secret about the hotel. I don
 
 #### [TCP over IP Anycast - Pipe dream or Reality?](https://engineering.linkedin.com/network-performance/tcp-over-ip-anycast-pipe-dream-or-reality)
 
-This article provides a comprehensive explanation of how LinkedIn migrated from DNS-based load balancing to anycast-based for their primary domain (www.linkedin.com). While the idea of using an anycast IP for the domain and relying on BGP to choose the closest server seemed promising, the implementation faced several challenges. The article describes how a hybrid model, which combines DNS-based and anycast-based approaches, was ultimately adopted and resulted in maximum advantage for LinkedIn.
+This article provides a comprehensive explanation of how LinkedIn migrated from DNS-based load balancing to anycast-based for their primary domain name. While the idea of using an anycast IP for the domain and relying on BGP to choose the closest server seemed promising, the implementation faced several challenges. The article describes how a hybrid model, which combines DNS-based and anycast-based approaches, was ultimately adopted and resulted in maximum advantage for LinkedIn.
 
 <br>
 
 #### [Null References: The Billion Dollar Mistake](https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/)
 
 In a talk at QCon 2009, Tony Hoare, winner of the 1980 Turing Award and inventor of pivotal programming concepts like quicksort and communicating sequential processes (CSP), discussed how he created null references in programming languages and why he believes it was a "billion-dollar mistake". Null references have been the cause of numerous runtime errors, prompting some modern programming languages like Rust to eliminate them completely. Hoare's talk sheds light on the issue and its implications for programming language design.
+
+<br>
+
+#### [Coroutines in C](https://www.chiark.greenend.org.uk/~sgtatham/coroutines.html)
+
+In this enlightening article, Simon Tatham, the brilliant mind behind PuTTY and Telnet, presents an exemplary implementation of stackless coroutines in C. While many might be familiar with using convenient syntactic sugar like *yield* or *async/await* to handle coroutines, this captivating piece takes a deep dive into the low-level mechanics, showcasing how coroutines can be expertly crafted in C using well-designed macros.
