@@ -25,3 +25,9 @@ In a talk at QCon 2009, Tony Hoare, winner of the 1980 Turing Award and inventor
 #### [Coroutines in C](https://www.chiark.greenend.org.uk/~sgtatham/coroutines.html)
 
 In this enlightening article, Simon Tatham, the brilliant mind behind PuTTY and Telnet, presents an exemplary implementation of stackless coroutines in C. While many might be familiar with using convenient syntactic sugar like *yield* or *async/await* to handle coroutines, this captivating piece takes a deep dive into the low-level mechanics, showcasing how coroutines can be expertly crafted in C using well-designed macros.
+
+<br>
+
+#### [Knightmare: A DevOps Cautionary Tale](https://dougseven.com/2014/04/17/knightmare-a-devops-cautionary-tale/)
+
+This article delves into a trading error that occurred in August 2012, resulting in the rapid bankruptcy of Knight Capital Group, the largest trader in US equities at the time, all within a mere 45 minutes. This trading debacle was attributed to a manual code deployment oversight, where one of the trading servers was inadvertently missed. The article underscores the significance of automation in software development as a defense against human errors.
