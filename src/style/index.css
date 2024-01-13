@@ -1,13 +1,10 @@
 @import 'default.css';
 
-.form-group {
-  margin-bottom: 10px;
+div.form-group {
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
 samp#output {
   font-size: 14px;
-}
-
-p {
-  margin-top: 15px;
 }
